@@ -1,0 +1,522 @@
+\chapter[Special Issues on Valuation (C.\ Conti)]{Special Issues on Valuation\\(C.\ Conti)}\label{ch:special}
+
+\emph{Based on ``Special Issues on Valuation'' (28 slides) by Cesare Conti, Bocconi University, Department of Finance: ``From valuation mechanics to economic judgement''. Sessions 15--16 of Part Two (professional extensions). Each slide ends with an ``In practice'' rule, reported here after the red label \emph{In practice}.}
+
+\newcommand{\inpractice}[1]{\par\smallskip\noindent{\small\textcolor{keyred}{\textbf{In practice}}\quad\emph{#1}}\par\smallskip}
+
+\section{Course Map}
+
+\begin{keybox}[One relevant question about valuation mechanics]
+\textbf{When does a formally correct valuation become economically wrong?}
+\end{keybox}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Focus 1 $\cdot$ Value, earnings and risk} (Session 1) & \textbf{Focus 2 $\cdot$ Industry, deals and judgement} (Session 2)\\
+\midrule
+Value configurations and acquisition value & Dynamic industry analysis\\
+EBITDA quality and multiple dispersion & Buy-and-build and strategic vulnerability\\
+Size, control and comparability adjustments & Valuation gaps and deal design\\
+Competitive advantage and terminal value & Uncertainty, scenarios and defensibility\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Before modelling, classify each judgement as cash flow, risk, multiple or deal structure.}
+
+% =====================================================================
+\section{Focus 1: Value, Earnings and Risk}
+
+\subsection{Price and Value Answer Different Questions}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Value} & \textbf{Price}\\
+\midrule
+A \textbf{conditional estimate} based on a defined perspective & An \textbf{observed outcome} of negotiation\\
+Changes with the valuation premise and available synergies & Reflects bargaining power, financing and execution constraints\\
+Requires a coherent income, growth and risk profile & Can lie above or below either party's value\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}
+A deal can create value for \textbf{both} parties even when they disagree on ``the'' value.
+\end{keybox}
+\begin{addbox}
+The same message as the Ocado case in the Introduction: ``price is negotiated, value is argued''. If the seller values the business at 160 and the buyer at 190, any price between them leaves both better off.
+\end{addbox}
+
+\subsection{A Ladder of Value Configurations}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=0.022cm]
+\foreach \i/\v/\c/\n/\d in {0/150/navy!70/{Intrinsic value}/{Standalone fundamentals},1/175/navy!70/{Market participant value}/{Market assumptions},2/190/teal!60/{Investment value}/{Buyer-specific synergies},3/185/keyred!60/{Transaction price}/{Negotiated outcome}}{
+  \fill[\c,rounded corners=2pt] (3.4*\i,0) rectangle (3.4*\i+2.2,\v);
+  \node[font=\small\bfseries,above] at (3.4*\i+1.1,\v) {\v};
+  \node[font=\small\bfseries,align=center,text width=3cm,below] at (3.4*\i+1.1,-8) {\n};
+  \node[font=\scriptsize\itshape,align=center,text width=3cm,below] at (3.4*\i+1.1,-48) {\d};}
+\end{tikzpicture}
+\end{center}
+\inpractice{Build a bridge that identifies who can capture each increment of value.}
+\begin{addbox}[Reading the ladder]
+150 $\to$ 175 ($+25$): what \emph{any} informed market participant would pay (e.g., market-wide synergies or financing). 175 $\to$ 190 ($+15$): synergies only \emph{this} buyer can capture. The price (185) lies below the buyer's investment value, so the buyer keeps $190-185=5$, while the seller captures $185-150=35$ above intrinsic value.
+\end{addbox}
+
+\subsection{Acquisition Value Belongs to the Buyer}
+\begin{keybox}[Acquisition value]
+\[
+\text{Acquisition value}=\text{Value of the buyer after the deal}-\text{Value of the buyer before the deal}
+\]
+\textbf{Value creation test}: \qquad Acquisition value $>$ Price paid
+\end{keybox}
+\begin{itemize}
+  \item Synergies matter \textbf{only if the buyer can capture them}.
+  \item \textbf{Integration costs and execution risk} reduce acquisition value.
+  \item The target can be excellent and the deal can still destroy value.
+\end{itemize}
+Investment bankers should reconcile the valuation bridge with the deal thesis.
+\begin{exbox}[Illustration (not on slides)]
+Buyer worth 1,000 alone; after the deal 1,180 (target stand-alone 150 $+$ synergies 50 $-$ integration costs 20). Acquisition value $=180$. Price 185 $\Rightarrow$ NPV for the buyer $=180-185=-5$: an excellent target, but a value-destroying deal.
+\end{exbox}
+
+\subsection{Control Premiums Often Double Count Value}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Defensible approach} & \textbf{Common error}\\
+\midrule
+Start from the cash flows available to the controlling owner & Apply a market premium mechanically to a control-level DCF\\
+Model operating improvements and financing effects explicitly & Treat the premium as a universal percentage\\
+Separate control benefits from buyer-specific synergies & Add a premium after using comparables that already reflect control\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Translate control rights into cash-flow or risk effects and test for double counting.}
+\begin{addbox}
+Two typical double counts: (i) a DCF built on the controlling owner's plan (with improvements) already contains the value of control; adding a 30\% premium counts it twice. (ii) Deal multiples (Chapter~\ref{ch:multiples}) already embed control premiums; adding a premium on top double counts.
+\end{addbox}
+
+\subsection{EBITDA Is Useful Because It Excludes Information}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{What EBITDA captures} & \textbf{What EBITDA omits}\\
+\midrule
+Revenue less cash operating costs & Working-capital absorption and CapEx\\
+Operating efficiency before asset consumption & Taxes and financing costs\\
+A common denominator for peer comparison & Capital intensity and accounting for asset consumption\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}
+\textbf{Comparability rises when detail disappears. Valuation risk rises for the same reason.}
+\end{keybox}
+\inpractice{Bridge EBITDA to cash flow, capex, taxes and debt before using the multiple.}
+
+\subsection{Alpha and Beta: Same EBITDA and Net Income, Different Value}
+\begin{exbox}[Even same EBITDA and net income do not imply equal value (slide)]
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Income statement} & \textbf{Alpha} & \textbf{Beta}\\
+\midrule
+EBITDA & 5,000 & 5,000\\
+Depreciation and amortisation & (1,500) & (1,700)\\
+Financial charges & (600) & (300)\\
+Taxes & (400) & (500)\\
+\midrule
+\textbf{Net income} & \textbf{2,500} & \textbf{2,500}\\
+\bottomrule
+\end{tabular}
+\end{center}
+The headline earnings measures are identical. The economic differences appear \textbf{below EBITDA} and \textbf{outside net income}.
+\end{exbox}
+\begin{exbox}[Cash conversion separates Alpha from Beta (slide)]
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Operating cash flow} & \textbf{Alpha} & \textbf{Beta}\\
+\midrule
+EBITDA & 5,000 & 5,000\\
+Change in net working capital & (800) & (400)\\
+Capital expenditure & (1,300) & (1,000)\\
+Taxes & (400) & (500)\\
+\midrule
+\textbf{Operating cash flow} & \textbf{2,500} & \textbf{3,100}\\
+\textbf{Cash conversion} (OCF/EBITDA) & \textbf{50\%} & \textbf{62\%}\\
+\bottomrule
+\end{tabular}
+\end{center}
+Beta converts $3{,}100/5{,}000=62\%$ of EBITDA into operating cash flow versus $2{,}500/5{,}000=50\%$ for Alpha.
+\end{exbox}
+\inpractice{Calculate cash conversion before selecting peers or adjusting a multiple.}
+
+\begin{exbox}[Discussion: cash conversion and leverage explain different multiples (slide)]
+Assume both companies are valued at \textbf{10$\times$ operating cash flow}.
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Valuation bridge} & \textbf{Alpha} & \textbf{Beta}\\
+\midrule
+Enterprise value ($10\times$ OCF) & 25,000 & 31,000\\
+\textbf{Implied EV/EBITDA} & $25{,}000/5{,}000=\mathbf{5.0\times}$ & $31{,}000/5{,}000=\mathbf{6.2\times}$\\
+Debt & 6,000 & 3,000\\
+Equity value (EV $-$ debt) & 19,000 & 28,000\\
+\textbf{Implied P/E} & $19{,}000/2{,}500=\mathbf{7.6\times}$ & $28{,}000/2{,}500=\mathbf{11.2\times}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{A multiple is the result of cash generation and risk. It is not an input chosen before the economic analysis.}
+\end{exbox}
+\begin{addbox}
+Applying one peer EV/EBITDA (say 6$\times$) to both firms would overvalue Alpha (30,000 vs 25,000) and undervalue Beta (30,000 vs 31,000). P/E differs even more because leverage also differs: Alpha's higher debt (6,000) is a larger claim on its lower EV. This is the EV/EBITDA determinants formula of Chapter~\ref{ch:multiples} in action: higher reinvestment (WC + CapEx) $\Rightarrow$ lower EV/EBITDA.
+\end{addbox}
+
+\subsection{Small-Company Risk Needs Diagnosis}
+\begin{center}
+\small
+\begin{tabular}{@{}p{6.5cm}p{7.5cm}@{}}
+\toprule
+\textbf{Economic sources} & \textbf{Valuation responses}\\
+\midrule
+Customer, supplier and key-person concentration & \textbf{Adjust forecasts} when the risk changes expected cash flows\\
+Limited financing flexibility and weaker systems & \textbf{Adjust the discount rate} only for non-diversifiable systematic exposure\\
+Greater sensitivity to single events & \textbf{Use scenarios} when events create asymmetric outcomes\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}
+A \textbf{mechanical size premium} can hide risk already captured elsewhere.
+\end{keybox}
+\begin{addbox}
+Consistent with the CAPM logic of Chapter~\ref{ch:coc}: only systematic risk belongs in the discount rate. Firm-specific risks (losing a key customer) change \emph{expected} cash flows (probability-weighted), as in Chapter~\ref{ch:forecast} (``expected, not most likely''). Adding a size premium on top of haircut cash flows counts the same risk twice.
+\end{addbox}
+
+\subsection{Competitive Advantage Sets the Forecast Horizon}
+\begin{keybox}
+\textbf{Value does not increase because the business plan becomes longer.}
+\end{keybox}
+\begin{center}
+\begin{tikzpicture}[x=1.3cm]
+\draw[line width=3pt,keyred!80] (0,0) -- (6,0); \draw[line width=3pt,navy!50] (6,0) -- (10,0);
+\node[below,font=\small] at (0,-0.15) {Today}; \node[below,font=\small\bfseries] at (3,-0.15) {Explicit forecast}; \node[below,font=\small\bfseries] at (9,-0.15) {Steady state};
+\node[align=center,font=\small] at (1.2,1.1) {\textbf{\color{navy}Normal return}\\Compensation for\\capital employed};
+\node[align=center,font=\small] at (5,1.1) {\textbf{\color{keyred}Excess return}\\Return generated by\\strategic assets};
+\node[align=center,font=\small] at (8.6,1.1) {\textbf{\color{teal}Fade period}\\Time until competition\\erodes the advantage};
+\end{tikzpicture}
+\end{center}
+\begin{keybox}
+\textbf{Terminal value starts when economics stabilise, not when Excel runs out of columns.}
+\end{keybox}
+\inpractice{End the explicit forecast when the economics reach a sustainable steady state.}
+
+\subsection{Strategic Assets Require Maintenance}
+\begin{center}
+\small
+\begin{tabular}{@{}>{\bfseries}p{4.5cm}p{9.5cm}@{}}
+\toprule
+\textnormal{\textbf{Strategic asset}} & \textbf{Maintenance investment}\\
+\midrule
+Brand and customer trust & Commercial investment, service quality and consistency\\
+Technology and know-how & R\&D, talent retention and learning\\
+Distribution access & Partner economics and channel productivity\\
+Operating routines & Systems, training and coordination capacity\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}
+\textbf{Maintenance CapEx includes investments that accounting may classify as operating expense.}
+\end{keybox}
+\begin{addbox}
+This is the R\&D-capitalization logic of Chapter~\ref{ch:fcf}: marketing, training or R\&D needed to \emph{keep} the advantage are economically CapEx. A terminal value that assumes a lasting advantage without these costs overstates value.
+\end{addbox}
+
+\subsection{Terminal Value Needs an Economic Steady State}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Fading advantage} & \textbf{Renewable advantage}\\
+\midrule
+Returns move toward the cost of capital & Returns remain above the cost of capital\\
+Terminal value may converge toward invested capital & Terminal cash flow must include renewal investment\\
+Forecast the run-off of excess returns explicitly & Evidence must support the effectiveness of reinvestment\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Test whether terminal returns fade to the cost of capital or require renewal investment.}
+\begin{addbox}[Why TV $\to$ invested capital when returns fade]
+With ROC $=k_C$ in perpetuity, TV $=$ EBIT$_{n+1}(1-t)/k_C$ (Chapter~\ref{ch:growth}). Since EBIT$(1-t)=$ ROC $\times$ invested capital $=k_C\times$ IC, TV $=$ IC: the firm is worth exactly the capital invested, because it earns no excess return.
+\end{addbox}
+
+\subsection{Focus 1 Synthesis (Discussion)}
+\begin{enumerate}
+  \item Which \textbf{value configuration} answers the assignment?
+  \item What does \textbf{EBITDA hide} in this business?
+  \item Which risks belong in \textbf{cash flows, scenarios or the discount rate}?
+  \item How long can the company earn \textbf{excess returns}?
+\end{enumerate}
+\begin{keybox}
+If these questions remain unanswered, the model is not ready for an investment committee.
+\end{keybox}
+
+% =====================================================================
+\section{Focus 2: Industry, Deals and Judgement}
+
+\subsection{Industry Analysis Must Explain Future Economics}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Static description} & \textbf{Dynamic analysis}\\
+\midrule
+Market size, growth and concentration & Likely strategic moves and countermoves\\
+Current competitors and market shares & Drivers of consolidation, integration or globalisation\\
+Historical margins & The target's capacity to gain, defend or lose position\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Convert each industry observation into a revenue, margin, reinvestment or risk assumption.}
+
+\subsection{Three Questions for Fundamental Industry Analysis}
+\begin{enumerate}
+  \item \textbf{Will the sector consolidate?} Scale economies, access to capital, standardisation and acquisition capacity.
+  \item \textbf{Will the value chain reconfigure?} Vertical integration, disintermediation and bargaining power.
+  \item \textbf{Where will profit pools migrate?} Customer needs, technology and scarce capabilities.
+\end{enumerate}
+
+\subsection{A Fragmented Sector Can Carry Hidden Strategic Risk}
+\begin{keybox}
+\textbf{Fragmentation today does not imply fragmentation tomorrow.}
+\end{keybox}
+\begin{center}
+\begin{tikzpicture}[b/.style={rounded corners=3pt,minimum width=3.4cm,text width=3.2cm,minimum height=1.3cm,align=center,font=\small}]
+\node[b,fill=navy!10] (a) at (0,0) {\textbf{Many local firms}\\Low apparent rivalry};
+\node[b,fill=teal!40] (b) at (3.9,0) {\textbf{Funded platform}\\Acquisition capacity};
+\node[b,fill=navy!10] (c) at (7.8,0) {\textbf{Add-on wave}\\Scale and talent capture};
+\node[b,fill=keyred!60,text=white] (d) at (11.7,0) {\textbf{New leader}\\Margin pressure on\\stand-alone firms};
+\foreach \x/\y in {a/b,b/c,c/d} \draw[-{Stealth},thick,gray] (\x)--(\y);
+\end{tikzpicture}
+\end{center}
+\begin{keybox}
+Historical stability may be the \textbf{weakest evidence} in a changing competitive structure.
+\end{keybox}
+\inpractice{Rebuild the peer set and downside case when consolidation changes the industry structure.}
+
+\subsection{Buy-and-Build Creates Value Through a Platform and Add-Ons}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Value-creation mechanisms} & \textbf{Failure modes}\\
+\midrule
+Acquire a platform, then add smaller businesses in the same or adjacent market & Platform overpayment and weak add-on discipline\\
+Create operating gains through scale, shared systems and stronger management & Integration costs exceed operating synergies\\
+Potential multiple uplift is credible only if integration improves the combined business & Leverage reduces strategic flexibility\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}
+Analyse returns separately: \textbf{operating improvement}, \textbf{leverage} and \textbf{entry-to-exit multiple change}.
+\end{keybox}
+
+\subsection{Customer Value Is the First Valuation Bridge}
+\begin{center}
+\begin{tikzpicture}[b/.style={rounded corners=3pt,minimum width=3cm,minimum height=1.4cm,align=center,font=\small,text width=2.9cm}]
+\node[b,fill=navy!10] (a) at (0,0) {\textbf{Customer problem}\\What outcome matters?};
+\node[b,fill=navy!10] (b) at (3.6,0) {\textbf{Willingness to pay}\\How much value does the customer recognise?};
+\node[b,fill=teal!40] (c) at (7.2,0) {\textbf{Value capture}\\Which share becomes revenue and margin?};
+\node[b,fill=keyred!60,text=white] (d) at (10.8,0) {\textbf{Enterprise value}\\How durable and scalable are the cash flows?};
+\foreach \x/\y in {a/b,b/c,c/d} \draw[-{Stealth},thick,gray] (\x)--(\y);
+\end{tikzpicture}
+\end{center}
+\begin{keybox}
+Revenue forecasts need an explicit theory of \textbf{customer value} and \textbf{value capture}.
+\end{keybox}
+\inpractice{Tie every revenue assumption to customer value, willingness to pay and value capture.}
+\begin{addbox}
+This is the revenue tree of Chapter~\ref{ch:forecast} (price $\times$ volume) seen from the customer side: price depends on willingness to pay, volume on the size of the customer problem, margin on how much of the created value the firm captures.
+\end{addbox}
+
+\subsection{Mini-Case: A ``Cheap'' Platform Acquisition (Discussion)}
+\begin{exbox}[Mini-case (slide)]
+A regional services platform trades at \textbf{7$\times$ EBITDA}. Add-ons trade at \textbf{5$\times$}.
+\begin{itemize}
+  \item The model assumes a \textbf{9$\times$ exit multiple} after five years.
+  \item Central costs rise before procurement synergies arrive.
+  \item Competitors backed by other funds are bidding for the same targets.
+\end{itemize}
+\textbf{Investment committee questions}: Which part of the return comes from operations, leverage and multiple expansion? What happens if the platform never earns a strategic premium?
+\end{exbox}
+\inpractice{Stress-test the exit multiple and the availability and price of add-on acquisitions.}
+\begin{exbox}[Suggested solution (ours, illustrative numbers; not on slides)]
+Buy the platform (EBITDA 10) at 7$\times$ $=70$ and add-ons (EBITDA 5) at 5$\times$ $=25$: total cost 95 for EBITDA 15 (blended entry multiple $95/15=6.33\times$). Assume EBITDA grows to 18 by year 5 and ignore debt.
+\begin{center}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Source of value gain} & \textbf{Computation} & \textbf{Gain}\\
+\midrule
+Operations (EBITDA growth at entry multiple) & $(18-15)\times6.33$ & 19\\
+Multiple arbitrage (add-ons re-rated to the platform multiple) & $18\times(7-6.33)$ & 12\\
+Multiple expansion (7$\times\to$ 9$\times$) & $18\times(9-7)$ & 36\\
+\midrule
+\textbf{Total} ($18\times9-95$) & $162-95$ & \textbf{67}\\
+\bottomrule
+\end{tabular}
+\end{center}
+More than half of the gain (36 of 67) comes from the assumed 9$\times$ exit multiple. If the platform never earns a strategic premium (exit at 7$\times$), the gain falls to 31; at the blended 6.33$\times$, only the operating 19 remains. Rising central costs and competing bidders (higher add-on prices than 5$\times$) erode both the operating and the arbitrage components. Leverage would amplify equity returns in both directions, but it is not value creation by the business.
+\end{exbox}
+
+\subsection{Deal Design Converts a Value Gap into an Allocation of Risk}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Seller perspective} & \textbf{Buyer perspective}\\
+\midrule
+Values the stand-alone plan and transfer of future upside & Prices integration costs and execution risk\\
+May attach value to identity, continuity or control & Values only synergies it expects to capture\\
+Faces information asymmetry about buyer synergies & Must preserve an acceptable acquisition return\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}
+Deal design combines \textbf{price, payment timing, financing, governance and contingent terms} to decide \textbf{who bears each uncertainty}.
+\end{keybox}
+
+\subsection{Four Deal-Design Tools for Four Uncertainties}
+\begin{center}
+\small
+\begin{tabular}{@{}>{\bfseries}l p{5.2cm}p{6cm}@{}}
+\toprule
+\textnormal{\textbf{Tool}} & \textbf{How it works} & \textbf{What must be negotiated}\\
+\midrule
+Earn-out & Part of the price depends on post-closing results & Metric, control of the business and measurement period\\
+Rollover equity & Seller reinvests part of the proceeds in the new group & Governance, dilution, liquidity and exit rights\\
+Vendor loan & Seller finances part of the purchase price & Interest, maturity, security, subordination and recovery\\
+Price adjustment & Price updates for debt, cash or working capital at closing & Definitions, accounting consistency and dispute process\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Match each deal tool to one uncertainty and model its cash-flow and control consequences.}
+\begin{addbox}[Which uncertainty each tool addresses]
+Earn-out: disagreement on \emph{future performance} (the seller is paid if the plan materialises). Rollover equity: \emph{alignment} and the seller's belief in upside. Vendor loan: \emph{financing} capacity and the seller's confidence. Price adjustment: the \emph{closing balance sheet} (net debt and WC at completion, linked to the EV-to-equity bridge). Example earn-out: buyer values the target at 160, seller at 200; agree 160 upfront $+$ 40 if year-2 EBITDA exceeds the seller's plan.
+\end{addbox}
+
+\subsection{Uncertainty Creates False Value Drivers}
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\toprule
+\textbf{Real driver} & \textbf{False driver}\\
+\midrule
+A causal link to future cash flows & A metric correlated with past performance only\\
+Observable leading indicators & A narrative that cannot be falsified\\
+A credible capacity to adapt or defend economics & A generic ``resilience'' premium without operational evidence\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Accept a driver only when a causal mechanism and observable indicator support it.}
+
+\subsection{Scenarios Separate Exposure from Response}
+\begin{center}
+\small
+\begin{tabular}{@{}>{\bfseries}l ll@{}}
+\toprule
+\textnormal{\textbf{External state}} & \textbf{Operating response} & \textbf{Valuation effect}\\
+\midrule
+Demand shock & Variable cost flexibility & Margin and cash burn\\
+Input disruption & Dual sourcing and inventory & Working capital and service\\
+Regulatory change & Product redesign or exit & CapEx, timing and terminal value\\
+Financing stress & Covenant headroom and liquidity & Equity risk and optionality\\
+\bottomrule
+\end{tabular}
+\end{center}
+\inpractice{Model the external shock and the company response in separate scenario steps.}
+\begin{exbox}[Illustration (not on slides): scenario-weighted value]
+Base case value 200 (prob.\ 60\%); demand-shock scenario 140 (30\%); severe shock 80 (10\%). Expected value $=0.6\times200+0.3\times140+0.1\times80=120+42+8=\mathbf{170}$, below the base case: asymmetric downside belongs in scenarios, not in a higher discount rate.
+\end{exbox}
+
+\subsection{A Valuation Is a Reasoned Estimate}
+\begin{keybox}
+\textbf{Credibility comes from the chain of reasoning, not the number of decimal places.}
+\end{keybox}
+\begin{center}
+\small
+\begin{tabular}{@{}>{\bfseries}l p{11cm}@{}}
+Purpose & The assignment determines the relevant value configuration\\
+Evidence & Historical, market and strategic information must reconcile\\
+Assumptions & Material judgements remain explicit and testable\\
+Limitations & Uncertainty and information gaps remain visible\\
+\end{tabular}
+\end{center}
+\inpractice{Make each material judgement explicit, testable and linked to evidence.}
+
+\subsection{Red-Team the Valuation (Discussion)}
+Teams receive the same model and attack one assumption each:
+\begin{center}
+\small
+\begin{tabular}{@{}>{\bfseries}l p{11cm}@{}}
+Cash flows & Which forecast depends on the weakest causal link?\\
+Multiple & Which peer difference has been ignored?\\
+Terminal value & What competitive advantage survives into perpetuity?\\
+Deal bridge & Who captures the synergies and who bears execution risk?\\
+\end{tabular}
+\end{center}
+\inpractice{Challenge the weakest assumption and state whether it changes value, price or deal terms.}
+
+\section{Close: The Investment-Banking Checklist}
+\begin{center}
+\begin{tikzpicture}[num/.style={text=keyred,font=\large\bfseries},txt/.style={anchor=west,font=\small\bfseries,text width=12cm}]
+\foreach \i/\t in {01/Define the value configuration before selecting the method,02/Translate EBITDA into cash flow and earnings quality,03/Explain the duration and renewal cost of competitive advantage,04/{Model industry change, not only current market structure},05/Use deal terms to allocate uncertainty,06/Make every material judgement visible and defensible}{
+  \node[num] at (0,-0.8*\i) {\i}; \node[txt] at (0.6,-0.8*\i) {\t}; \draw[gray!40] (0.6,-0.8*\i-0.35) -- (13,-0.8*\i-0.35);}
+\end{tikzpicture}
+\end{center}
+\inpractice{Use the checklist before the investment-committee or client-review meeting.}
+
+% =====================================================================
+\section{Formula Summary Sheet}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}p{5cm}p{10cm}@{}}
+\toprule
+\textbf{Concept} & \textbf{Formula / rule}\\
+\midrule
+Value ladder & Intrinsic $\leq$ market participant $\leq$ investment value; price is negotiated\\
+Acquisition value & Value of buyer after deal $-$ value of buyer before deal\\
+Value creation test & Acquisition value $>$ price paid\\
+Cash conversion & Operating cash flow / EBITDA (Alpha 50\%, Beta 62\%)\\
+Operating cash flow & EBITDA $-\Delta$NWC $-$ CapEx $-$ taxes\\
+Implied multiples & EV/EBITDA $=$ (EV/OCF) $\times$ cash conversion; P/E $=$ (EV $-$ debt)/NI\\
+TV with fading advantage & ROC $\to k_C$ $\Rightarrow$ TV $\to$ invested capital\\
+Return decomposition (B\&B) & Operations $+$ multiple arbitrage $+$ multiple expansion ($+$ leverage)\\
+Scenario value & $\sum_s p_s V_s$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\needspace{14\baselineskip}
+\section{Common Mistakes and Exam Traps}
+\begin{trapbox}[Exam traps -- Chapter 12]
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Price $\neq$ value}: value is a conditional estimate from a perspective; price is a negotiated outcome and can lie above or below either party's value.
+  \item Value ladder: intrinsic (stand-alone) $\to$ market participant (market assumptions) $\to$ investment value (buyer-specific synergies) $\to$ transaction price (negotiated). Example: 150, 175, 190, 185.
+  \item Acquisition value belongs to the \textbf{buyer}: value after $-$ value before; a deal creates value only if acquisition value $>$ price paid. Synergies count only if the buyer can capture them; integration costs reduce value.
+  \item \textbf{Control premiums double count} when added to a control-level DCF or to comparables (deal multiples) that already reflect control; never treat the premium as a universal percentage.
+  \item EBITDA omits WC, CapEx, taxes, financing and capital intensity: same EBITDA and NI can hide different cash conversion (Alpha 50\% vs Beta 62\%).
+  \item At the same 10$\times$ OCF, implied EV/EBITDA is 5.0$\times$ vs 6.2$\times$ and P/E 7.6$\times$ vs 11.2$\times$: a multiple is an \textbf{output} of cash generation and risk, not an input.
+  \item Small-company risk: adjust \textbf{cash flows} for firm-specific risks, the \textbf{discount rate} only for systematic exposure, \textbf{scenarios} for asymmetric events; a mechanical size premium may double count.
+  \item A longer business plan does not create value; the explicit forecast ends when economics reach a steady state (``not when Excel runs out of columns'').
+  \item Maintenance of strategic assets (brand, R\&D, distribution, routines) is economically CapEx even if expensed.
+  \item Fading advantage $\Rightarrow$ returns $\to$ cost of capital, TV $\to$ invested capital; renewable advantage $\Rightarrow$ terminal cash flow must include renewal investment.
+  \item Dynamic industry analysis: consolidation, value-chain reconfiguration, profit-pool migration; fragmentation today does not imply fragmentation tomorrow.
+  \item Buy-and-build: separate operating improvement, leverage and multiple change; stress-test the exit multiple and add-on availability/price.
+  \item Deal tools: earn-out (performance), rollover equity (alignment/governance), vendor loan (financing), price adjustment (closing debt, cash, WC).
+  \item False value drivers: correlation with the past, unfalsifiable narratives, generic ``resilience'' premiums.
+  \item Scenarios model the external shock and the company's response in separate steps.
+\end{enumerate}
+\end{trapbox}

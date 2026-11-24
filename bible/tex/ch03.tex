@@ -1,0 +1,295 @@
+\chapter[Special Topic 01: Coherent Plans]{Special Topic 01:\\Coherent Plans}\label{ch:coherent}
+
+\emph{Based on Special Topic 01 (file L03, 16 slides): ``Coherent Plans''. Session 5 of Part One (research-based judgment). Built on S.\ Rossi's paper with P.\ Giustinelli, \emph{The Coherence Side of Rationality: Theory and Evidence from Firm Plans} (forthcoming, \emph{Review of Financial Studies}).}
+
+\section{Where We Are in the Valuation Workflow}
+
+Equity story $\to$ Financial statements $\to$ \textbf{Forecasts} $\to$ \textbf{Cash flows} $\to$ Discount rate $\to$ Terminal value $\to$ Multiples $\to$ Value bridge $\to$ Recommendation.
+\begin{keybox}[Today]
+\textbf{Forecasts $\longrightarrow$ Cash flows $\longrightarrow$ Value}
+\end{keybox}
+
+\section{Why May Good-Looking Forecasts Still Produce Bad Valuations?}
+
+\begin{itemize}
+  \item Each assumption may look \textbf{reasonable in isolation}.
+  \item The problem is whether the assumptions \textbf{fit together}.
+  \item Valuation errors often come from \textbf{inconsistency across revenue, margins, CapEx, working capital, debt, and terminal assumptions}.
+\end{itemize}
+\begin{keybox}[Bottom line]
+The unit of analysis is not a single forecast. It is the \textbf{forecast system}.
+\end{keybox}
+
+\section{Coherence Is Not the Same as Accuracy}
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{@{}lXX@{}}
+\toprule
+ & \textbf{Accurate ex post} & \textbf{Inaccurate ex post}\\
+\midrule
+\textbf{Coherent ex ante} & Good process, good outcome & Good process / bad luck / bad outcome\\
+\textbf{Incoherent ex ante} & Bad process, lucky outcome & Bad process / bad outcome / \textbf{predictable error}\\
+\bottomrule
+\end{tabularx}
+\end{center}
+\begin{keybox}[Main message]
+\textbf{Accuracy is judged after realizations; coherence is assessed before realizations.}
+\end{keybox}
+\begin{addbox}
+Coherence is the property you can control and check today, before any outcome is known: do the assumptions fit together as one business? Accuracy depends on outcomes and luck. A coherent plan can turn out wrong (bad luck), and an incoherent plan can turn out right (good luck). But the errors of incoherent plans are \emph{predictable}, i.e., systematic rather than random, which is why they matter for valuation.
+\end{addbox}
+
+% =====================================================================
+\section{Rules of Thumb in Business Planning}
+
+\subsection{How CFOs and Analysts Often Forecast}
+
+\begin{center}
+\begin{tikzpicture}
+\node[anchor=north west,text width=12.3cm,font=\small] at (0,0) {
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Plain growth} -- compute for each item the average of the 2--3 most recent annual growth rates.
+  \item \textbf{Percentage of sales} -- assign to each item the same growth rate as that forecast for sales.
+  \item \textbf{Economies of scale} -- estimate an OLS regression of each item's growth on contemporaneous sales growth: the estimated \textbf{intercept is the fixed component}; the estimated \textbf{slope times the forecast sales growth is the variable component}.
+  \item \textbf{Industry-based} -- same as 3, but using only data on firms in the same industry.
+  \item \textbf{Disaggregated / multivariate} -- estimate a ``kitchen sink'' specification with all available variables.
+\end{enumerate}};
+\draw[-{Stealth},thick] (13.2,-0.2) -- (13.2,-5.2);
+\node[font=\scriptsize,anchor=south] at (13.2,-0.2) {Least coherent};
+\node[font=\scriptsize,anchor=north] at (13.2,-5.2) {Most coherent};
+\end{tikzpicture}
+\end{center}
+
+\begin{addbox}[The economies-of-scale rule in formulas]
+For each item $X$ (e.g., COGS), estimate on historical data
+\[
+g_{X,t} = \alpha + \beta\, g_{\text{Sales},t} + \varepsilon_t
+\qquad\Longrightarrow\qquad
+\hat g_{X,t+1} = \underbrace{\hat\alpha}_{\text{fixed component}} + \underbrace{\hat\beta\,\hat g_{\text{Sales},t+1}}_{\text{variable component}}
+\]
+Percentage of sales is the special case $\alpha=0,\ \beta=1$: every item grows exactly like sales. If $\beta<1$ (e.g., costs with a fixed part), margins expand as sales grow (operating leverage).\\
+Example: $\hat\alpha=1\%$, $\hat\beta=0.6$, forecast sales growth $10\%$ $\Rightarrow$ cost growth $=1\%+0.6\times10\%=7\%<10\%$, so the margin improves.
+\end{addbox}
+
+\subsection{The Misleading Simplicity of ``Everything Grows with Sales''}
+
+\begin{center}
+\small
+\begin{tabular}{@{}lcl@{}}
+\toprule
+\textbf{Percentage-of-sales model} & & \textbf{Coherence questions}\\
+\midrule
+Sales growth forecast/target & $+10\%$ & Does demand, market share, or capacity support this?\\
+COGS / SG\&A growth forecast & $+10\%$ & Are there fixed costs or scale economies?\\
+Net working capital growth forecast & $+10\%$ & Does working-capital intensity remain constant?\\
+Capital expenditures growth forecast & $+10\%$ & Is there maintenance CapEx?\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}[Key point]
+Percentage-of-sales is \textbf{not wrong by definition}; it is wrong when it \textbf{ignores the economics of the business}.
+\end{keybox}
+
+% =====================================================================
+\section{The Paper's Findings}
+
+\subsection{Incoherence Is Not Just an Academic Concern}
+
+\begin{enumerate}
+  \item \textbf{CFO forecasts often align with rules of thumb.}
+  \item \textbf{Some rules are more incoherent than others}:
+  \begin{itemize}
+    \item \textbf{Plain growth and percentage-of-sales are the most incoherent}; \textbf{multivariate is the most coherent};
+    \item \textbf{nearly half} of CFO forecasts align with the plain-growth and percentage-of-sales rules of thumb (RoTs).
+  \end{itemize}
+  \item \textbf{Incoherence is associated with}: predictable forecast errors; lower performance; underinvestment.
+\end{enumerate}
+
+\begin{addbox}[Reading the paper with the six questions of the Introduction]
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Research question}: are firms' plans internally coherent, and does incoherence matter?
+  \item \textbf{Wisdom challenged}: rationality is usually judged on accuracy (are forecasts right on average?); the paper adds a \emph{coherence} dimension (do the forecasts fit together?).
+  \item \textbf{Method}: compare CFO forecasts with the forecasts implied by the five rules of thumb.
+  \item \textbf{Results}: the three findings above.
+  \item \textbf{Professional implication}: test the plan as a system before valuing it.
+  \item \textbf{Limitations}: the detailed data and identification are in the paper (on Blackboard), not on the slides.
+\end{itemize}
+\end{addbox}
+
+\subsection{How Incoherent Plans Distort Valuation}
+
+\begin{center}
+\begin{tikzpicture}[b/.style={fill=navy,text=white,rounded corners=2pt,font=\small,align=center,minimum height=0.8cm,inner sep=3pt},ar/.style={-{Stealth},thick,navy}]
+\node[b] (a) at (0,0) {Incoherent\\plan};
+\node[b] (b) at (2.5,0) {Wrong\\reinvestment};
+\node[b] (c) at (5.0,0) {Wrong\\FCFO};
+\node[b] (d) at (7.5,0) {Wrong terminal\\value};
+\node[b] (e) at (10.6,0) {Wrong EV and\\Equity Value};
+\draw[ar] (a)--(b); \draw[ar] (b)--(c); \draw[ar] (c)--(d); \draw[ar] (d)--(e);
+\end{tikzpicture}
+\end{center}
+Examples:
+\begin{center}
+\small
+\begin{tabular}{@{}l@{$\;\longrightarrow\;$}l@{}}
+Sales growth without CapEx & FCFO \textbf{overstated}\\
+Working capital flat despite growth & cash needs \textbf{understated}\\
+Debt/cash used as plug & financing policy \textbf{hides} operating inconsistency\\
+Terminal growth not reachable from explicit period & terminal value becomes \textbf{fantasy}\\
+Margin expansion without mechanism & terminal margin \textbf{overstated}\\
+\end{tabular}
+\end{center}
+
+\begin{exbox}[Illustration: sales growth without CapEx (not on slides)]
+Year-1 forecast: EBIT $=100$, $t=40\%$, D\&A $=50$, $\Delta$WC $=10$. Revenue grows 10\%.
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Incoherent plan}: CapEx $=50$ (= D\&A, maintenance only). FCFO $=100\times0.6+50-50-10=\mathbf{50}$.
+  \item \textbf{Coherent plan}: growth needs capacity, say net CapEx $=30$ (CapEx $=80$). FCFO $=60+50-80-10=\mathbf{20}$.
+\end{itemize}
+The incoherent plan overstates FCFO by 150\%, and the error compounds through the terminal value.
+\end{exbox}
+
+% =====================================================================
+\section{Examples}
+
+\subsection{JJ Jones: Which Assumptions Must Fit Together?}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{7cm}p{7cm}@{}}
+\textbf{\color{keyred}Income statement} & \textbf{\color{keyred}Liabilities and preferred stock}\\
+$\bullet$ Revenue growth -- simple 10\% growth & $\bullet$ Accounts payable -- 40 days$^*$\\
+$\bullet$ Cost of goods sold -- 60\% of revenues & $\bullet$ Accrued expenses -- 20\% of revenues\\
+$\bullet$ Operating expenses -- 10\% of revenues & $\bullet$ Debt -- retire current portion of LTD, increase LTD if insufficient cash flow (same interest rate)\\[4pt]
+\textbf{\color{keyred}Assets} & \\
+$\bullet$ Excess assets (cash and other) -- \$0 & \\
+$\bullet$ Required cash balance -- 5\% of revenues & \\
+$\bullet$ Accounts receivable -- 50 days$^*$ & \\
+$\bullet$ Inventory -- 80 days$^*$ & \\
+$\bullet$ Net PPE to revenues -- 1.2 ratio$^*$ & \\
+\end{tabular}
+\end{center}
+\begin{itemize}
+  \item What else must be true for these assumptions to describe \textbf{one coherent business}?
+  \item JJ Jones is not just a modelling exercise; \textbf{it is a coherence exercise}.
+\end{itemize}
+
+\begin{addbox}[What else must be true for JJ Jones]
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Constant margins} (COGS 60\%, opex 10\%) with 10\% growth means no economies of scale: all costs are variable. Is this consistent with the business (rent, staff, overheads)?
+  \item \textbf{Net PPE/revenue fixed at 1.2} means every \$1 of extra revenue needs \$1.2 of new net PPE: at 10\% growth, net CapEx $=1.2\times\Delta$Revenue. Capacity is coherent with growth.
+  \item \textbf{Days ratios fixed} means WC grows with sales: the WC intensity of the business model does not change.
+  \item \textbf{Debt as balancing item} means the financing policy must be consistent with the deficits generated (FCFO is negative in a growth phase, see Chapter~\ref{ch:forecast}): can the firm keep raising debt at 8\%?
+  \item \textbf{10\% growth forever} is not reachable in a terminal value: long-run growth must converge to a sustainable rate.
+\end{itemize}
+\end{addbox}
+
+\subsection{The Coherence Checklist}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.3}\begin{tabularx}{\textwidth}{@{}>{\bfseries\color{navy}\raggedright\arraybackslash}p{5.6cm}X@{}}
+\toprule
+1. Story-to-driver coherence & Does the equity story explain the forecast drivers?\\
+2. Revenue-to-capacity coherence & Does growth require CapEx, capacity, hiring, inventory, or marketing?\\
+3. Margin coherence & Do margin changes follow from price, mix, scale, efficiency, or input costs?\\
+4. Working-capital coherence & Do receivables, inventory, and payables reflect the business model?\\
+5. Financing coherence & Are debt, cash, dividends, and repurchases consistent with FCFE?\\
+6. Terminal coherence & Is the terminal firm reachable from the explicit forecast?\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\subsection{Plausible Is Not Necessarily Coherent}
+
+\begin{itemize}
+  \item Excel can make a model balance even when assumptions are economically inconsistent.
+  \item AI can generate plausible narratives and reasonable-looking assumptions.
+\end{itemize}
+$\Longrightarrow$ \textbf{Neither Excel nor AI guarantees coherence.} The analyst's job is to \textbf{test the system}.
+\begin{keybox}[Bottom line]
+\textbf{A model that balances is not necessarily a business plan that makes sense.}
+\end{keybox}
+
+\subsection[Discussion Question]{Discussion Question \layer{PRACTICE}}
+
+\begin{exbox}[Discussion Question]
+Consider the following system of forecasts:
+\begin{itemize}
+  \item Sales growth 12\% per year
+  \item EBITDA margin rises from 15\% to 22\%
+  \item CapEx falls below depreciation
+  \item NWC remains constant
+  \item Debt is repaid quickly
+  \item Terminal growth is 4\%
+\end{itemize}
+(i) Under what business story could this plan be coherent? (ii) Which assumptions are red flags absent that story?
+\end{exbox}
+
+\begin{exbox}[Suggested solution (our own, not provided on the slides; built on the coherence checklist)]
+\textbf{(i) A story that could make it coherent.} A firm that has \textbf{just completed a large investment cycle} and has \textbf{spare capacity}, so it can grow 12\% without new capacity (CapEx $<$ depreciation is temporarily possible). Growth fills the existing plants, so \textbf{fixed costs are spread over more volume} (operating leverage), explaining the margin expansion from 15\% to 22\%. Alternatively, an \textbf{asset-light / scalable} model (software, platforms) whose growth needs little physical capital. NWC constant is plausible if the firm improves its cash cycle (shorter DSO/DIO, longer DPO) or sells with up-front payment. Strong cash generation then allows fast debt repayment.
+
+\textbf{(ii) Red flags absent that story} (checklist item in brackets):
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{CapEx below depreciation with 12\% growth} [revenue-to-capacity]: the asset base shrinks while volume grows. That works only while spare capacity lasts; in steady state net CapEx must be positive ($g=\text{ROIC}\times\text{reinvestment rate}$). FCFO is overstated.
+  \item \textbf{NWC constant while sales grow 12\%} [working capital]: with unchanged days ratios WC should grow $\approx$12\% per year; cash needs are understated.
+  \item \textbf{Margin 15\% $\to$ 22\%} [margin]: requires a mechanism (pricing power, mix, scale, efficiency, input costs); without one, the terminal margin is overstated.
+  \item \textbf{Fast debt repayment} [financing]: possible only because FCF is inflated by the previous points. Financing looks healthy because the operating forecast is incoherent.
+  \item \textbf{Terminal growth 4\%} [terminal]: high for a perpetuity (around or above long-run nominal GDP growth), and inconsistent with zero or negative net reinvestment. Growth forever needs reinvestment; a terminal value built on these flows ``becomes fantasy''.
+\end{enumerate}
+\end{exbox}
+
+% =====================================================================
+\section{Takeaways}
+
+\begin{enumerate}
+  \item Coherence is a property of the \textbf{forecast system (plan)}, not of one forecast variable.
+  \item A plan can be plausible line by line and incoherent overall.
+  \item Rules of thumb are useful only when they \textbf{respect business economics}.
+  \item Incoherent plans distort \textbf{FCFO, terminal value, leverage, and valuation}.
+  \item Good analysts test whether story, assumptions, financial statements, and valuation all fit together.
+\end{enumerate}
+\begin{keybox}[Closing line]
+In valuation, discipline is not only getting the formula right. It is \textbf{making the assumptions fit together}.
+\end{keybox}
+
+% =====================================================================
+\section{Formula Summary Sheet}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}p{5.2cm}p{9.8cm}@{}}
+\toprule
+\textbf{Concept} & \textbf{Formula}\\
+\midrule
+Plain growth & $\hat g_{X,t+1}=$ average of the last 2--3 annual growth rates of $X$\\
+Percentage of sales & $\hat g_{X,t+1}=\hat g_{\text{Sales},t+1}$ (i.e., $X/\text{Sales}$ constant)\\
+Economies of scale & $g_{X,t}=\alpha+\beta g_{\text{Sales},t}+\varepsilon_t$; $\hat g_X=\hat\alpha$ (fixed) $+\hat\beta\hat g_{\text{Sales}}$ (variable)\\
+Industry-based & Same regression, estimated on same-industry firms only\\
+Multivariate & ``Kitchen sink'' regression with all available variables\\
+Growth needs reinvestment & $g=\text{ROIC}\times\text{Reinvestment rate}$ (Chapter~\ref{ch:fcf})\\
+Coherence vs accuracy & Coherence: ex ante; accuracy: ex post\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% =====================================================================
+\needspace{14\baselineskip}
+\section{Common Mistakes and Exam Traps}
+
+\begin{trapbox}[Exam traps -- Chapter 3]
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Coherence $\neq$ accuracy}: coherence is assessed \emph{before} realizations, accuracy is judged \emph{after}. A coherent plan can be inaccurate (bad luck); an incoherent plan can be accurate (luck).
+  \item Incoherent plans produce \textbf{predictable} (systematic) forecast errors.
+  \item Ranking of rules of thumb: \textbf{plain growth} (least coherent) $\to$ percentage of sales $\to$ economies of scale $\to$ industry-based $\to$ \textbf{multivariate} (most coherent).
+  \item Paper's findings: CFO forecasts often follow rules of thumb; \textbf{nearly half} follow plain growth or percentage of sales; incoherence is associated with \textbf{predictable forecast errors, lower performance, underinvestment}.
+  \item Economies-of-scale rule: \textbf{intercept = fixed component}; \textbf{slope $\times$ forecast sales growth = variable component}.
+  \item Percentage of sales is \textbf{not wrong by definition}, only when it ignores the business economics (fixed costs, maintenance CapEx, changing WC intensity).
+  \item The unit of analysis is the \textbf{forecast system}, not a single forecast.
+  \item Sales growth without CapEx $\Rightarrow$ FCFO \textbf{overstated}; flat WC despite growth $\Rightarrow$ cash needs \textbf{understated}; debt/cash as plug $\Rightarrow$ hides operating inconsistency; unreachable terminal growth $\Rightarrow$ terminal value becomes fantasy; margin expansion without mechanism $\Rightarrow$ terminal margin overstated.
+  \item A model that \textbf{balances} is not necessarily coherent; neither Excel nor AI guarantees coherence.
+  \item Six coherence checks: story-to-driver, revenue-to-capacity, margin, working capital, financing (consistent with FCFE), terminal (reachable from the explicit forecast).
+\end{enumerate}
+\end{trapbox}

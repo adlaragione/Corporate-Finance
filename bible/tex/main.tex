@@ -1,0 +1,148 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+% ---------- Fonts & encoding ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ---------- Layout ----------
+\usepackage[a4paper,margin=2.5cm,headheight=14pt]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+% ---------- Math, tables, graphics ----------
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,multirow,makecell,longtable,array,colortbl}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit,decorations.pathreplacing,shadows}
+\usepackage{textcomp}
+\providecommand{\euro}{\texteuro}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{enumitem}
+\setlist{itemsep=0.15em,topsep=0.3em}
+\usepackage{float}
+\usepackage{needspace}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+% ---------- Colours ----------
+\usepackage{xcolor}
+\definecolor{navy}{RGB}{20,30,120}
+\definecolor{bocconi}{RGB}{50,50,160}
+\definecolor{keyred}{RGB}{190,30,30}
+\definecolor{addgreen}{RGB}{20,110,60}
+\definecolor{lightgrey}{RGB}{242,242,242}
+\definecolor{boxblue}{RGB}{230,236,250}
+\definecolor{trapbg}{RGB}{253,236,236}
+\definecolor{addbg}{RGB}{233,246,238}
+
+% ---------- Headings ----------
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\color{navy}}{\chaptertitlename\ \thechapter}{18pt}{\Huge}
+\titleformat{\section}{\normalfont\Large\bfseries\color{navy}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{navy}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\color{navy!80!black}}{}{0em}{}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+% ---------- Header / footer ----------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\fancyhead[L]{\small\itshape Corporate Finance -- Exam Guide}
+\fancyhead[R]{\small\itshape\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% ---------- Boxes ----------
+\usepackage[most]{tcolorbox}
+\tcbset{enhanced,breakable,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt,fonttitle=\bfseries\small}
+% key formula / key result
+\newtcolorbox{keybox}[1][Key formula]{colback=boxblue,colframe=navy,title={#1}}
+% definition
+\newtcolorbox{defbox}[1][Definition]{colback=lightgrey,colframe=black!60,title={#1}}
+% added explanation (not on slides)
+\newtcolorbox{addbox}[1][Added explanation]{colback=addbg,colframe=addgreen,title={#1 \hfill\normalfont\itshape not on slides}}
+% exam trap
+\newtcolorbox{trapbox}[1][Exam trap]{colback=trapbg,colframe=keyred,title={#1}}
+% worked example
+\newtcolorbox{exbox}[1][Worked example]{colback=white,colframe=bocconi,title={#1}}
+
+% layer tag (CORE/PRO/TECH/PRACTICE as on slides)
+\newcommand{\layer}[1]{\hfill{\normalfont\footnotesize\fboxsep=1.5pt\colorbox{navy}{\textcolor{white}{\textbf{#1}}}}}
+\newcommand{\added}{\textcolor{addgreen}{\textit{(added explanation)}}\ }
+\newcommand{\slidefig}[1]{\par\smallskip{\footnotesize\itshape\textcolor{black!60}{#1}}\par}
+
+% ---------- Hyperlinks ----------
+\usepackage[colorlinks=true,linkcolor=navy,urlcolor=navy,citecolor=navy]{hyperref}
+\usepackage{bookmark}
+\usepackage{tocloft}
+\setlength{\cftbeforechapskip}{4pt}
+\setlength{\cftbeforesecskip}{0pt}
+\renewcommand{\cftsecfont}{\small}
+\renewcommand{\cftsecpagefont}{\small}
+\renewcommand{\cftchapfont}{\bfseries\color{navy}}
+
+\begin{document}
+
+% ================= TITLE =================
+\begin{titlepage}
+\centering
+\vspace*{5cm}
+{\color{navy}\Huge\bfseries 20127 Corporate Finance\\[4pt] (Business Valuation)\par}
+\vspace{1cm}
+{\Large Final Exam Study Guide\par}
+\vspace{0.4cm}
+{\large Lectures, Discussion Questions, Formula Sheets and Exam Traps\par}
+\vspace{1.5cm}
+{\large MSc Finance -- Bocconi University\par}
+{\large Prof.\ Stefano Rossi\par}
+\vspace{1.2cm}
+{\large\itshape Brought to you by Adriano La Ragione\par}
+\vfill
+{\small Parts One and Two -- Lectures 01--12\par}
+\end{titlepage}
+
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+\itshape Closed-book exam, multiple choice only (1 correct answer out of 4, no penalty for wrong answers).\\[4pt]
+Attending: 15 MCQ in 45 minutes (7 Part One + 7 Part Two + 1 Testimonial).\\
+Non-attending: 31 MCQ in 60 minutes (14 Part One + 14 Part Two + 3 Academic Readings).\\[4pt]
+No formula sheet. Basic scientific calculator only (no storage, no NPV functions).\\[14pt]
+\upshape
+\begin{tabular}{@{}ll@{}}
+\fcolorbox{navy}{boxblue}{\rule{0pt}{6pt}\rule{6pt}{0pt}} & Key formula / key result (blue)\\
+\fcolorbox{black!60}{lightgrey}{\rule{0pt}{6pt}\rule{6pt}{0pt}} & Definition (grey)\\
+\fcolorbox{bocconi}{white}{\rule{0pt}{6pt}\rule{6pt}{0pt}} & Worked example from the slides, every step shown\\
+\fcolorbox{addgreen}{addbg}{\rule{0pt}{6pt}\rule{6pt}{0pt}} & Added explanation -- reasoning said in class or needed, \emph{not on the slides}\\
+\fcolorbox{keyred}{trapbg}{\rule{0pt}{6pt}\rule{6pt}{0pt}} & Exam trap\\
+\layer{CORE} & Slide layer tag used by the professor (CORE / PRO / TECH / PRACTICE)
+\end{tabular}
+\end{center}
+\clearpage
+
+\tableofcontents
+
+\setcounter{chapter}{-1}
+\include{ch00}
+\include{ch01}
+\include{ch02}
+\include{ch03}
+\include{ch04}
+\include{ch05}
+\include{ch06}
+\include{ch07}
+\include{ch08}
+\include{ch09}
+\include{ch10}
+\include{ch11}
+\include{ch12}
+
+\end{document}

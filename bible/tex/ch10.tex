@@ -1,0 +1,519 @@
+\chapter[Free Cash Flow to Equity Models (FCFE)]{Free Cash Flow to Equity\\Models (FCFE)}\label{ch:fcfe}
+
+\emph{Based on Lecture L10 (31 slides): ``Free Cash Flow to Equity Models (FCFE)'', 28--29 October 2026, and on the official solution file \texttt{20127\_DQ\_7\_SOL.xlsx} (sheet ``Example'': FCFE and FCFO from financial statements; sheet 7.1: growth and NPVGO; sheet 7.2: Sony; sheet 7.3: Nestl\'e). Workflow step: equity valuation.}
+
+\section{Plan for the Day}
+\textbf{Last time}: how to implement a DDM valuation; the impact of growth on a DDM valuation (Chapter~\ref{ch:ddm}).\\
+\textbf{Today}: understanding FCFE discount models; the differences between DDM and FCFE.\\
+\textbf{Agenda}: (1) FCFE: from earnings to cash flows; comparing dividends to FCFE; (2) FCFE models: principles, constant growth, two-stage, three-stage; (3) examples: constant growth (Sony), two-stage (Nestl\'e).
+
+% =====================================================================
+\section{Free Cash Flows to Equity}
+
+\subsection{From Earnings to Cash Flows}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}rl@{\hspace{0.4cm}}rl@{}}
+\multicolumn{2}{@{}l}{\textbf{1. FCFE (levered cash flows) -- equity side}} & \multicolumn{2}{l}{\textbf{2. FCFO (unlevered cash flows) -- asset side}}\\[3pt]
+$+$ & Net income & $+$ & FCFE\\
+$+/-$ & Non-cash expenditure / non-cash revenues & $+$ & Interest expense $\times(1-$tax rate$)$\\
+$-$ & CapEx & $+$ & (Principal debt repayments $-$ new debt issues)\\
+\cmidrule{3-4}
+$-$ & $\Delta$ non-cash non-debt WC (``WC'' from now on) & $=$ & \textbf{FCFO}\\[3pt]
+$-$ & (Principal debt repayments $-$ new debt issues) & $+$ & Operating income (EBIT)\\
+\cmidrule{1-2}
+$=$ & \textbf{FCFE} & $-$ & Taxes on EBIT\\
+&& $+/-$ & Non-cash expenditure / non-cash revenues\\
+&& $-$ & Reinvestment needs (CapEx and WC)\\
+\cmidrule{3-4}
+&& $=$ & \textbf{FCFO}
+\end{tabular}
+\end{center}
+\slidefig{[Ignoring preferred dividends. If preferred shares exist, preferred dividends also need to be netted out.] The arrows on the slide link the reinvestment lines (CapEx, $\Delta$WC) of FCFE to the ``reinvestment needs'' line of FCFO: the two cash flows share the same reinvestment.}
+
+\begin{exbox}[Official ``Example'' sheet (DQ 7 Excel): FCFE and FCFO from the statements]
+\small
+\begin{minipage}[t]{0.47\linewidth}
+\textbf{Income statement 2025}\\[2pt]
+\begin{tabular}{@{}lr@{}}
+Sales & 1,000\\
+(Opex) & (300)\\
+\midrule
+EBITDA & 700\\
+(D\&A) & (50)\\
+\midrule
+EBIT & 650\\
+Interest costs & (250)\\
+\midrule
+EBT & 400\\
+Taxes (30\%) & (120)\\
+\midrule
+\textbf{Net income} & \textbf{280}
+\end{tabular}
+
+\medskip
+\textbf{Balance sheet} \hfill 2024 \quad 2025\\[2pt]
+\begin{tabular}{@{}lrr@{}}
+Receivables & 500 & 290\\
+Inventory & 700 & 650\\
+Fixed assets & 1,200 & 1,500\\
+Cash & 200 & 330\\
+\midrule
+Total assets & 2,600 & 2,770\\[2pt]
+Payables & 800 & 740\\
+Financial debt & 1,100 & 1,200\\
+Share capital & 500 & 450\\
+Retained earnings & 200 & 380\\
+\midrule
+Total liabilities & 2,600 & 2,770
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\textbf{FCFE (from net income)}\\[2pt]
+\begin{tabular}{@{}lr@{}}
+Net income & 280\\
++ D\&A & 50\\
+$-$ CapEx ($1{,}500-1{,}200+50$) & (350)\\
++ $\Delta$ receivables ($500-290$) & 210\\
++ $\Delta$ inventory ($700-650$) & 50\\
+$-$ $\Delta$ payables ($740-800$) & (60)\\
++ $\Delta$ debt ($1{,}200-1{,}100$) & 100\\
+\midrule
+\textbf{FCFE} & \textbf{280}\\
++ Interest $\times(1-t)=250\times0.7$ & 175\\
+$-$ Net debt issued & (100)\\
+\midrule
+\textbf{FCFO} & \textbf{355}
+\end{tabular}
+
+\medskip
+\textbf{FCFO (from EBIT) and back to cash}\\[2pt]
+\begin{tabular}{@{}lr@{}}
+EBIT & 650\\
+$-$ Operating taxes ($650\times30\%$) & (195)\\
++ D\&A & 50\\
++ $\Delta$WC ($210+50-60$) & 200\\
+$-$ CapEx & (350)\\
+\midrule
+\textbf{FCFO} & \textbf{355}\\
++ Financial debt & 100\\
+$-$ Interests & (250)\\
++ Tax shield ($120-195$, i.e.\ $250\times30\%$) & 75\\
+\midrule
+\textbf{FCFE} & \textbf{280}\\
+$-$ Buybacks ($450-500$) & (50)\\
+$-$ Dividends ($200+280-380$) & (100)\\
+\midrule
+= Net cash flow ($=330-200$) & \textbf{130} \checkmark
+\end{tabular}
+\end{minipage}
+
+\medskip
+Working capital $=$ receivables $+$ inventory $-$ payables: $400$ (2024) $\to200$ (2025) $\Rightarrow$ a \textbf{release} of 200. Effective tax rate $=120/400=30\%$.
+\end{exbox}
+
+\subsection{Dividends vs FCFE}
+\begin{itemize}
+  \item Conventional measure of dividend policy (alternatively the \emph{augmented} payout, Chapter~\ref{ch:ddm}): \ Payout $=$ Dividends / Earnings.
+  \item The \textbf{modified} approach measures the \textbf{total} cash returned to shareholders as a \% of \textbf{FCFE} (instead of net income):
+\end{itemize}
+\begin{keybox}[Cash to shareholders]
+\[
+\text{Cash to shareholders}=\frac{\text{Dividends}+\text{Buybacks}}{\text{FCFE}}
+\]
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Ratio $\approx1$}: the firm is paying out \textbf{all} it can.
+  \item \textbf{Ratio $<1$}: the firm pays out \textbf{less} than it can and uses the difference to increase cash or invest in marketable securities.
+  \item \textbf{Ratio $>1$}: the firm pays out \textbf{more} than it can and is either drawing on existing cash or issuing new securities.
+\end{enumerate}
+\end{keybox}
+\textbf{Why do many firms pay out less than their FCFE?}
+\begin{enumerate}
+  \item \textbf{Desire for stability}: firms are reluctant to change DPS, which are ``sticky'' (variability in DPS $<$ variability in EPS or cash flows).
+  \item \textbf{Signaling prerogatives}: DPS are used as signals of prospects; increases are positive signals, decreases negative ones (see Chapter~\ref{ch:safety} for the ``safety'' interpretation).
+  \item \textbf{Future investments}: firms may hold back if they expect substantial increases in CapEx; since issuing securities is expensive (transaction costs, \dots), they keep excess cash for future needs.
+  \item \textbf{Managerial self-interest}: managers may gain by retaining cash rather than paying it out.
+\end{enumerate}
+\begin{exbox}[Illustration (not on slides): official Example sheet]
+FCFE $=280$; dividends $100$ + buybacks $50=150$ $\Rightarrow$ cash to shareholders $=150/280=54\%<1$. The remaining 130 increases cash (200 $\to$ 330).
+\end{exbox}
+
+% =====================================================================
+\section{FCFE Models}
+
+\subsection{Principles}
+\begin{itemize}
+  \item FCFE models discount \textbf{potential} dividends rather than \textbf{actual} ones: they are simple \emph{variants} of the DDM.
+  \item Replacing dividends with FCFE assumes \textbf{FCFE will be paid out} to shareholders. Two consequences:
+  \begin{enumerate}
+    \item \textbf{Cash}: no future cash build-up, since the cash available after debt payments and reinvestment is assumed to be paid out entirely;
+    \item \textbf{Growth}: expected growth in FCFE includes growth in income from \textbf{operating assets}, not growth in income from marketable securities.
+  \end{enumerate}
+  \item Models analysed: constant growth, two-stage, three-stage FCFE model.
+\end{itemize}
+
+\subsection{Underlying Principles: Growth}
+FCFE are cash flows to equity investors; their growth is $g=\text{ERR}\cdot\text{ROE}$. For FCFE it is better to replace the retention ratio with the \textbf{equity reinvestment rate (ERR)}:
+\begin{keybox}[Equity reinvestment rate and noncash ROE]
+\[
+\text{ERR}=\frac{\text{CapEx}-\text{D\&A}+\Delta\text{WC}-\text{New debt issued}+\text{Debt repaid}}{\text{Net income}}
+\]
+In the FCFE model there is \textbf{no excess cash}, so ROE should measure the return on \textbf{noncash} investment:
+\[
+\text{Noncash ROE}=\frac{\text{Net income}-\text{After-tax interest income}}{\text{BV of equity}-\text{Cash \& marketable securities}}
+\]
+\[
+\boxed{g=\text{ERR}\cdot\text{Noncash ROE}}
+\]
+\end{keybox}
+When discounting FCFE it is safest to \textbf{value the equity in operating assets} and then \textbf{add the existing cash} the firm may have.
+\begin{addbox}[Why noncash ROE]
+Cash earns a low (interest) return. Including cash in BV and its interest in NI would mix the low return on cash with the return on operating assets, understating the ROE on new investments. Since FCFE assumes no cash build-up, growth must come only from operating assets; the existing cash is valued separately at face value. Note also: ERR $=1-$ FCFE/NI (Nestl\'e example below), because FCFE $=$ NI $-$ (net CapEx $+\Delta$WC $-$ net debt).
+\end{addbox}
+
+\subsection{Constant Growth Model}
+\begin{keybox}[Constant growth FCFE]
+Designed for firms in \textbf{steady state}:
+\[
+\text{EqV}_0=\frac{\mathbb{E}(\text{FCFE}_1)}{K_e-g_n}
+\]
+$\mathbb{E}(\text{FCFE}_1)$ $=$ expected FCFE \textbf{next year}; $K_e$ $=$ cost of equity; $g_n$ $=$ growth of FCFE forever.\\
+Stable growth: $g_n=\text{ERR}\cdot\text{Noncash ROE}$ (linked to fundamentals); $g$ must be reasonable relative to the nominal growth of the economy/industry.
+\end{keybox}
+\begin{itemize}
+  \item \textbf{Limitations}: extremely (exponentially) sensitive to $g$; if $g$ is estimated from industry averages, the valuation can be skewed when the industry is at a different stage of growth (not in steady state) than the target.
+  \item \textbf{Works best for}: firms growing at a rate $\leq$ nominal growth in the economy; \textbf{better than the DDM} for firms paying dividends that are unsustainably high or significantly lower than FCFE.
+  \item If firms are stable and pay out their FCFE as dividends, the value is the \textbf{same} as with the Gordon model.
+\end{itemize}
+
+\subsection{Growth, Value and NPVGO: The Hypothetical Firm \textnormal{(official sheet 7.1)}}
+
+\textbf{Steady state}: no new investments except renewals (CapEx $=$ D\&A), net income $=$ FCFE $=1{,}575$ every year (horizontal dashed line).
+
+\textbf{What happens if the firm invests 20\% of its yearly cash flows at a return of 12\%?}
+\begin{itemize}
+  \item FCFE at $T_1$ is $1{,}575\times(1-0.20)=\mathbf{1{,}260}$ ($<$ steady-state FCFE).
+  \item In $T_2$ net income is no longer 1,575 but \textbf{1,613}: the reinvestment of 315 in $T_1$ adds $1{,}575\times20\%\times12\%=\mathbf{38}$.
+  \item In $T_2$ the firm again reinvests 20\%: $323=1{,}613\times20\%$. In $T_3$ net income is 1,652, and so on to infinity.
+  \item In a nutshell: cash flows distributable as dividends grow at a constant rate $=20\%\ (\text{ERR})\times12\%\ (\text{ROE})=\mathbf{2.4\%}$.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=13cm,height=7.5cm,xmin=0.5,xmax=15.5,ymin=1150,ymax=2350,xtick={1,...,15},clip=false,
+  xlabel={time},ylabel={FCFE},legend style={at={(0.03,0.97)},anchor=north west,font=\scriptsize},ymajorgrids,
+  title={\small ROE $=12\%$, ERR $=20\%$ $\Rightarrow g=2.4\%$}]
+\addplot[very thick,navy,mark=square*,mark size=1.3pt,domain=1:15,samples=15] {1575*1.024^(x-1)};
+\addlegendentry{Gross FCFE (net income)}
+\addplot[very thick,keyred,mark=*,mark size=1.3pt,domain=1:15,samples=15] {1260*1.024^(x-1)};
+\addlegendentry{Net FCFE (after reinvestment)}
+\addplot[dashed,gray,thick,domain=0.5:15.5] {1575};
+\addlegendentry{Steady state (no growth)}
+\node[font=\scriptsize,above left] at (axis cs:15,2195) {2,195.23};
+\node[font=\scriptsize,below right] at (axis cs:14.6,1756) {1,756.18};
+\node[font=\scriptsize,below right] at (axis cs:1,1260) {1,260};
+\node[font=\scriptsize,above right] at (axis cs:1,1575) {1,575};
+\end{axis}
+\end{tikzpicture}
+\slidefig{Redrawn from the slide: gross FCFE $=1{,}575\times1.024^{t-1}$ (1,612.80, 1,651.51, \dots, 2,195.23); net FCFE $=0.8\times$ gross (1,290.24, 1,321.21, \dots, 1,756.18). The vertical gap is the reinvestment (315, 322.56, 330.30, \dots). Net FCFE crosses the steady-state line around $t=10$.}
+\end{center}
+
+\begin{exbox}[Value with growth (ROE $=12\%$, $K_e=10\%$) -- confirmed by the official Excel]
+\[
+\text{EqV}_0=\frac{1{,}260}{0.10-0.024}=\mathbf{16{,}579}
+\]
+\textbf{Decomposition}: in a growth scenario, equity value $=$ base value in a no-growth (steady-state) scenario $+$ NPV of growth opportunities (NPVGO):
+\[
+\text{EqV}_{\text{Growth}}=\text{EqV}_{\text{Base}}+\text{NPVGO}
+\]
+\vspace{-12pt}
+\begin{align*}
+\text{EqV}_{\text{Base}}&=\frac{\text{FCFE}_{\text{steady-state}}}{K_e}=\frac{1{,}575}{0.10}=\mathbf{15{,}750}\\
+\text{NPVGO}_1&=-315+\frac{38}{0.10}=-315+378=\mathbf{63}\\ \text{NPVGO}_2&=-323+\frac{39}{0.10}=\mathbf{65}\ (=63\times1.024)\\
+\text{NPVGO (all years)}&=\frac{63}{0.10-0.024}=\mathbf{829}\\
+\text{EqV}_{\text{Growth}}&=\frac{1{,}575}{0.10}+\frac{63}{0.10-0.024}\\&=15{,}750+829=\mathbf{16{,}579}
+\end{align*}
+This equals the Gordon model at $T_0$: $\frac{\text{FCFE}}{K_e-g}=\frac{1{,}260}{0.10-0.024}=16{,}579$.
+\end{exbox}
+\begin{keybox}[Key result]
+\textbf{Growth only creates value if ROE $>K_e$} (for asset-side models, if ROI $>$ WACC).
+\end{keybox}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=13cm,height=6.5cm,xmin=0.5,xmax=15.5,ymin=1150,ymax=2200,xtick={1,...,15},clip=false,
+  xlabel={time},ylabel={FCFE},legend pos=north west,legend style={font=\scriptsize},ymajorgrids,
+  title={\small ROE $=K_e=10\%$, ERR $=20\%$ $\Rightarrow g=2\%$}]
+\addplot[very thick,navy,mark=square*,mark size=1.3pt,domain=1:15,samples=15] {1575*1.02^(x-1)};
+\addlegendentry{Gross FCFE}
+\addplot[very thick,keyred,mark=*,mark size=1.3pt,domain=1:15,samples=15] {1260*1.02^(x-1)};
+\addlegendentry{Net FCFE}
+\addplot[dashed,gray,thick,domain=0.5:15.5] {1575};
+\addlegendentry{Steady state}
+\node[font=\scriptsize,above left] at (axis cs:15,2078) {2,078.18};
+\node[font=\scriptsize,below right] at (axis cs:14.6,1662) {1,662.54};
+\end{axis}
+\end{tikzpicture}
+\slidefig{Redrawn from the slide: gross 1,575, 1,606.50, 1,638.63, \dots, 2,078.18; net 1,260, 1,285.20, 1,310.90, \dots, 1,662.54.}
+\end{center}
+
+\begin{exbox}[What if (noncash) ROE $=K_e=10\%$? And ROE $<K_e$?]
+$g=\text{ROE}\cdot\text{RR}=0.10\times0.2=2\%$.
+\begin{align*}
+\text{Steady-state approach:}\quad\text{EqV}&=\frac{1{,}575}{0.10}=\mathbf{15{,}750}\\
+\text{``Gordon'':}\quad\text{EqV}&=\frac{1{,}260}{0.10-0.02}=\mathbf{15{,}750}
+\end{align*}
+The value is the same: the firm grows in \textbf{size} (investments and cash flows) but \textbf{not in value}. NPVGO is systematically null: $\text{NPVGO}_{T_1}=-315+31.5/0.10=0$.
+
+\medskip
+If \textbf{ROE $<K_e$}, growth \textbf{destroys} value (NPVGO $<0$). With a new-investment return of 8\%: $g=0.08\times0.2=1.6\%$ and
+\[
+W=\frac{1{,}260}{0.10-0.016}=\mathbf{15{,}000}<15{,}750\qquad(\text{NPVGO}_1=-315+25.2/0.10=-63)
+\]
+\end{exbox}
+\begin{addbox}
+Same result as Chapter~\ref{ch:growth} (TV table): with ROC $=k_C$, value does not depend on $g$. Reinvesting at the cost of capital is a zero-NPV project; only the \emph{spread} ROE $-K_e$ creates (or destroys) value. Note: the slide's second chart reuses the reinvestment labels of the first one (322.56, 330.30, \dots); with 2\% growth they would be 321.30, 327.73, \dots.
+\end{addbox}
+
+\subsection{Two-Stage Model}
+\begin{keybox}[Two-stage FCFE]
+For firms expected to grow faster than a stable firm at first and at a stable rate afterwards:
+\[
+\text{EqV}=\sum_{t=1}^{n}\frac{\mathbb{E}(\text{FCFE}_t)}{(1+K_{e,hg})^t}+\frac{\text{TV}}{(1+K_{e,hg})^n}=\sum_{t=1}^{n}\frac{\mathbb{E}(\text{FCFE}_t)}{(1+K_{e,hg})^t}+\frac{\mathbb{E}(\text{FCFE}_{n+1})}{(K_{e,st}-g_n)(1+K_{e,hg})^n}
+\]
+TV $=$ terminal value at the end of the ``extraordinary'' growth; $g_n=\text{ERR}\cdot\text{Noncash ROE}$, to be checked against the economy/industry growth rate.
+\end{keybox}
+\begin{itemize}
+  \item \textbf{Limitations}: same limitations on $g$ as the stable model; assumptions used to derive FCFE after the terminal year must be consistent with stability. Two approaches (as in the stable model): (1) industry-average CapEx requirements; (2) fundamental growth equation (\textbf{ERR $=g$/ROE}). $\beta$ and the debt ratio may need adjusting: in stable growth $\beta\approx1$ and the debt ratio is higher than during high growth.
+  \item \textbf{Works best for}: firms that reach steady state after a period of expansion; firms with unsustainable dividends (higher than FCFE) or paying less than they can afford (less than FCFE).
+\end{itemize}
+
+\subsection{Three-Stage Model}
+\begin{keybox}[Three-stage FCFE]
+Three stages: (1) initial higher $g$; (2) transition in which $g$ declines; (3) steady state with stable $g$:
+\[
+\text{EqV}_0=\sum_{t=1}^{n_1}\frac{\mathbb{E}(\text{FCFE}_t)}{(1+K_{e,hg})^t}+\sum_{t=n_1+1}^{n_2}\frac{\mathbb{E}(\text{FCFE}_t)}{(1+K_{e,tr})^t}+\frac{\mathbb{E}(\text{FCFE}_{n_2+1})}{(K_{e,st}-g_n)(1+K_e)^{n_2}}
+\]
+$n_1$ $=$ periods in high growth; $n_2$ $=$ periods in transition; stable $g_n=\text{ERR}\cdot\text{Noncash ROE}$, checked against the economy/industry.
+\end{keybox}
+\begin{itemize}
+  \item \textbf{Limitations}: all variables must be consistent with the three phases. CapEx vs D\&A changes along the way: \textbf{high-$g$ phase: CapEx $>$ D\&A}; \textbf{transition: the difference narrows}; \textbf{stable phase: the difference is lower still}. As $g$ declines, $\beta\to1$.
+  \item \textbf{Works best for}: firms with very high current growth; firms whose dividends are significantly higher or lower than FCFE.
+\end{itemize}
+
+% =====================================================================
+\section{Example: Constant Growth -- Sony}
+
+Japanese firms have proved difficult to value:
+\begin{itemize}
+  \item last-year earnings were \textbf{depressed} relative to earlier in the decade, reflecting the Japanese economy;
+  \item Japanese GAAP \textbf{understates earnings and overstates BV of equity} (provisions for unspecified expenses);
+  \item earnings of export-oriented firms are heavily influenced by \textbf{FX movements};
+  \item \textbf{cross holdings}, and the lack of transparency in them, make valuation difficult.
+\end{itemize}
+
+\begin{exbox}[Sony: data (JPY)]
+\begin{center}
+\begin{tabular}{@{}lr@{\hspace{1.2cm}}lr@{}}
+Revenue & 2,593b & BV equity & 1,795b\\
+D\&A & 76b & Dividends & 21b\\
+Net income & 38.23b & ROE & 2.13\%\\
+CapEx & 103b & Risk-free & 2.00\%\\
+WC & 220b & ERP & 4.00\%\\
+\end{tabular}
+\end{center}
+\textbf{Assumptions}: normalize earnings with Sony's past ROE of \textbf{5.25\%} (current earnings depressed); dominant market share $\Rightarrow$ constant growth model with long-term stable $g=\mathbf{3\%}$ ($>$ Japanese economy because of global exposure, $=$ average revenue growth over the last 5 years); CapEx grows at 3\%; WC stays at \textbf{8.48\%} of revenues ($=220/2{,}593$); reinvestment financed with debt at the current debt-to-capital ratio of \textbf{25.8\%}; $\beta=1.1$.
+\end{exbox}
+
+\subsection{Cross Holdings}
+\begin{itemize}
+  \item \textbf{Minority active holdings (20\%--50\%)}: under the equity method, the firm reports, in net income but below EBIT, its share of the net income of these holdings, whether or not it received any cash (dividends).
+  \item \textbf{Minority passive holdings ($<$20\%)}: only the cash dividends received are reported (in net income, below EBIT).
+\end{itemize}
+\begin{keybox}[How to value cross holdings]
+(1) Value the target firm \textbf{without} the cash flows from cross holdings; (2) value the cross holdings on their own; (3) add the target's \% of the value of these companies to the value from step 1.
+\end{keybox}
+\begin{addbox}
+This is the ``$+$ non-operating assets / associates'' line of the EV-to-equity bridge (Chapters~\ref{ch:fcf} and~\ref{ch:multiples}). If their income is left inside net income or EBIT \emph{and} they are added separately, they are double counted.
+\end{addbox}
+
+\begin{exbox}[Sony: valuation -- confirmed by the official Excel (sheet 7.2)]
+\begin{align*}
+\text{Normalized net income}&=1{,}795\times5.25\%=\mathbf{94.2}\\
+\text{Current net CapEx}&=103-76=27\qquad\text{Expected net CapEx}=27\times1.03=\mathbf{27.8}\\
+\text{Expected revenues}&=2{,}593\times1.03=2{,}670.8\\ \text{Expected }\Delta\text{WC}&=(2{,}670.8-2{,}593)\times8.48\%=\mathbf{6.6}\\
+K_e&=2\%+1.1\times4\%=\mathbf{6.4\%}
+\end{align*}
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+\multicolumn{2}{@{}l}{\textbf{Expected FCFE next year (JPY b)}}\\
+\midrule
+Expected net income & 94.2\\
+$-$ Net CapEx $\times(1-\text{debt ratio})=27.81\times(1-0.258)$ & (20.6)\\
+$-$ $\Delta$WC $\times(1-\text{debt ratio})=6.6\times(1-0.258)$ & (4.9)\\
+\midrule
+\textbf{FCFE} & \textbf{68.7}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\[
+\text{EqV}=\frac{\mathbb{E}(\text{FCFE}_1)}{k_e-g}=\frac{68.7}{0.064-0.03}=\mathbf{JPY\ 2{,}021b}
+\]
+\end{exbox}
+\begin{addbox}[Why reinvestment $\times(1-\text{debt ratio})$]
+If 25.8\% of reinvestment is financed with new debt, equity holders fund only 74.2\% of it: FCFE $=$ NI $-$ (net CapEx $+\Delta$WC) $+$ net debt issued $=$ NI $-$ (net CapEx $+\Delta$WC)$(1-\delta)$, with $\delta$ the debt ratio. The 94.2 is already next year's normalized income (ROE $\times$ current BV), so it is not grown again.
+\end{addbox}
+
+% =====================================================================
+\section{Example: Two-Stage -- Nestl\'e}
+
+Nestl\'e operates all over the world, with 97\% of sales outside Switzerland. Like many large European corporations it has \textbf{weak corporate governance}, shareholders with little power over managers, and \textbf{dividends $<$ FCFE}.
+\begin{itemize}
+  \item \textbf{Why two stages?} Long and impressive history of growth: growth will be moderate, but Nestl\'e can maintain high growth for \textbf{10 years}.
+  \item \textbf{Why FCFE?} Given its weak governance and a history of accumulating cash, the dividends paid bear little resemblance to what the firm could have paid out.
+\end{itemize}
+
+\begin{exbox}[Nestl\'e: inputs]
+\begin{center}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Inputs} & \textbf{CHF m} & \textbf{Per share}\\
+\midrule
+Revenues & 81,422 & 2,095.8\\
+D\&A & 3,330 & 85.7\\
+Net income & 5,763 & 148.3\\
+CapEx & 5,058 & 130.2\\
+WC & 5,818 & 149.8\\
+$\Delta$WC & 368 & 9.5\\
+BV of equity & 25,078 & 645.5\\
+Net debt issues & 272 & 7.0\\
+\bottomrule
+\end{tabular}
+\end{center}
+(38.85m shares.) 10-year Swiss government CHF bond rate $=4\%$; $\beta=0.85$; ERP from Nestl\'e's breakdown of revenues by region:
+\begin{center}
+\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Region} & \textbf{Revenues (CHF b)} & \textbf{Weight} & \textbf{ERP} & \textbf{Weight $\times$ ERP}\\
+\midrule
+North America & 20.2 & 24.8\% & 4.0\% & 0.99\%\\
+South America & 5.0 & 6.1\% & 12.0\% & 0.73\%\\
+Switzerland & 1.3 & 1.6\% & 4.0\% & 0.06\%\\
+Germany/France/UK & 21.3 & 26.1\% & 4.0\% & 1.04\%\\
+Italy/Spain & 7.4 & 9.1\% & 5.5\% & 0.50\%\\
+Asia & 6.7 & 8.2\% & 9.0\% & 0.74\%\\
+Rest of W.\ Europe & 15.0 & 18.4\% & 4.0\% & 0.74\%\\
+Eastern Europe & 4.6 & 5.7\% & 8.0\% & 0.45\%\\
+\midrule
+\textbf{Total} & 81.4 & 100.0\% & & \textbf{5.26\%}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\[
+k_e=4\%+0.85\times5.26\%=\mathbf{8.47\%}\quad(\text{assumed unchanged in perpetuity})
+\]
+\end{exbox}
+
+\begin{exbox}[Nestl\'e: growth -- confirmed by the official Excel (sheet 7.3)]
+\begin{align*}
+\text{FCFE}&=\text{NI}-(\text{CapEx}-\text{D\&A})-\Delta\text{WC}+\text{Net debt issues}\\&=5{,}763-(5{,}058-3{,}330)-368+272=\mathbf{CHF\ 3{,}939m}\\
+\text{ERR}&=1-\frac{\text{FCFE}}{\text{NI}}=1-\frac{3{,}939}{5{,}763}=\mathbf{31.7\%}\\
+\text{ROE}&=5{,}763/25{,}078=\mathbf{22.98\%}\\ g&=\text{ERR}\cdot\text{ROE}=0.3165\times0.2298=\mathbf{7.27\%}
+\end{align*}
+(Assuming BV of equity includes no cash holdings and net income no interest income, so this is a noncash ROE.)\\
+\textcolor{keyred}{\textbf{Slide typo}}: the slide writes ``NI $-$ CapEx $-$ D\&A''; the correct formula subtracts \emph{net} CapEx (CapEx $-$ D\&A), as the numbers show.
+
+\textbf{Stable growth} (after year 10): $g=4\%$, $K_e$ unchanged, ROE drops to 15\% $\Rightarrow$ \textbf{ERR $=g$/ROE $=4\%/15\%=26.7\%$}.
+\end{exbox}
+
+\begin{exbox}[Nestl\'e: high-growth phase (per share) -- official Excel]
+Earnings, net CapEx and WC grow at 7.27\%; \textbf{33.92\%} of reinvestment needs come from debt. Year 1: EPS $=148.3\times1.0727=159.1$; net CapEx $=(130.2-85.7)\times1.0727=47.7$; $\Delta$WC $=9.5\times1.0727=10.2$; debt financing $=33.92\%\times57.9=19.6$; FCFE $=159.1-57.9+19.6=120.9$.
+\begin{center}
+\small
+\begin{tabular}{@{}crrrrrrr@{}}
+\toprule
+Year & EPS & Net CapEx & $\Delta$WC & Reinvest. & Debt fin. & FCFE & PV at 8.47\%\\
+\midrule
+1 & 159.1 & 47.7 & 10.2 & 57.9 & 19.6 & 120.9 & 111.4\\
+2 & 170.7 & 51.2 & 10.9 & 62.1 & 21.1 & 129.7 & 110.2\\
+3 & 183.1 & 54.9 & 11.7 & 66.6 & 22.6 & 139.1 & 109.0\\
+4 & 196.4 & 58.9 & 12.5 & 71.4 & 24.2 & 149.2 & 107.8\\
+5 & 210.7 & 63.2 & 13.5 & 76.6 & 26.0 & 160.1 & 106.6\\
+6 & 226.1 & 67.8 & 14.4 & 82.2 & 27.9 & 171.7 & 105.4\\
+7 & 242.5 & 72.7 & 15.5 & 88.2 & 29.9 & 184.2 & 104.2\\
+8 & 260.1 & 78.0 & 16.6 & 94.6 & 32.1 & 197.6 & 103.1\\
+9 & 279.1 & 83.7 & 17.8 & 101.5 & 34.4 & 212.0 & 102.0\\
+10 & 299.3 & 89.8 & 19.1 & 108.9 & 36.9 & 227.4 & 100.8\\
+\midrule
+\multicolumn{7}{@{}r}{$\sum$ PV of FCFE} & \textbf{1,060.5}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Terminal value} (year 11):
+\begin{align*}
+\text{EPS}_{11}&=\text{EPS}_{10}(1+g_{st})=299.3\times1.04=311.3\\
+\text{Equity reinvestment}_{11}&=\text{EPS}_{11}\times\text{stable ERR}=311.3\times0.2667=83.0\\
+\text{FCFE}_{11}&=311.3-83.0=228.3\\
+\text{TV}_{10}&=\frac{228.3}{0.0847-0.04}=\mathbf{5{,}103.5}\\
+\text{EqV}&=1{,}060.5+\frac{5{,}103.5}{1.0847^{10}}=1{,}060.5+2{,}262.7=\mathbf{CHF\ 3{,}323.3}\ \text{per share}
+\end{align*}
+\textcolor{keyred}{\textbf{Slide typo}}: the slide writes $5{,}103.5/1.0847$; the TV must be discounted over \textbf{10 years} ($1.0847^{10}=2.255$), as in the Excel.
+\end{exbox}
+\begin{addbox}[Two details of the stable phase]
+(i) In the stable year the Excel sets debt financing to zero and computes reinvestment as EPS $\times$ ERR: the stable ERR already measures \emph{equity} reinvestment (net of debt). (ii) Stable FCFE (228.3) is barely above year-10 FCFE (227.4) even though EPS grows: lower growth needs less reinvestment (ERR falls from 31.7\% to 26.7\%), which frees cash flow.
+\end{addbox}
+
+% =====================================================================
+\section{Formula Summary Sheet}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{@{}p{4.6cm}p{10.4cm}@{}}
+\toprule
+\textbf{Concept} & \textbf{Formula}\\
+\midrule
+\endhead
+FCFE & NI $\pm$ non-cash items $-$ CapEx $-\Delta$WC $-$ (repayments $-$ new debt)\\
+FCFO from FCFE & FCFE $+$ Int$(1-t)$ $+$ (repayments $-$ new debt)\\
+FCFE with target debt ratio $\delta$ & NI $-$ (Net CapEx $+\Delta$WC)$(1-\delta)$\\
+Cash to shareholders & (Dividends $+$ Buybacks)/FCFE ($\approx1$, $<1$, $>1$)\\
+Equity reinvestment rate & ERR $=\frac{\text{CapEx}-\text{D\&A}+\Delta\text{WC}-\text{New debt}+\text{Repaid}}{\text{NI}}=1-\frac{\text{FCFE}}{\text{NI}}$\\
+Noncash ROE & $\frac{\text{NI}-\text{after-tax interest income}}{\text{BV equity}-\text{cash \& marketable securities}}$\\
+FCFE growth & $g=\text{ERR}\times\text{Noncash ROE}$;\ stable ERR $=g$/ROE\\
+Constant growth & $\text{EqV}_0=\mathbb{E}(\text{FCFE}_1)/(K_e-g_n)$ (then add cash)\\
+Two-stage & $\sum_{t=1}^n\frac{\text{FCFE}_t}{(1+K_{hg})^t}+\frac{\text{FCFE}_{n+1}}{(K_{st}-g_n)(1+K_{hg})^n}$\\
+Three-stage & high growth $+$ transition $+$ $\frac{\text{FCFE}_{n_2+1}}{(K_{st}-g_n)(1+K)^{n_2}}$\\
+Value decomposition & $\text{EqV}=\frac{\text{FCFE}_{\text{steady}}}{K_e}+\text{NPVGO}$\\
+NPVGO of one year & $-I+\frac{I\times\text{ROE}}{K_e}$;\ all years: $\text{NPVGO}_1/(K_e-g)$\\
+Growth and value & ROE $>K_e$ creates, $=K_e$ neutral, $<K_e$ destroys value\\
+Regional ERP & $\sum_i w_i\,\text{ERP}_i$ (revenue weights)\\
+Cross holdings & value firm without them $+$ \% owned $\times$ their value\\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\needspace{14\baselineskip}
+\section{Common Mistakes and Exam Traps}
+\begin{trapbox}[Exam traps -- Chapter 10]
+\begin{enumerate}[leftmargin=*]
+  \item FCFE models discount \textbf{potential} dividends; they assume FCFE is fully paid out (no cash build-up).
+  \item Gordon FCFE uses \textbf{FCFE$_1$} (next year).
+  \item Use the \textbf{equity} reinvestment rate (net of debt financing) and \textbf{noncash} ROE; then \textbf{add existing cash} to the value of equity in operating assets.
+  \item Cash to shareholders $=$ (dividends $+$ buybacks)/FCFE: $<1$ builds cash, $>1$ draws on cash or issues securities.
+  \item Four reasons firms pay out less than FCFE: stability, signaling, future investments, managerial self-interest.
+  \item FCFE is better than the DDM when dividends are unsustainably high or much lower than FCFE (Nestl\'e). If a stable firm pays out its FCFE, FCFE and DDM give the same value.
+  \item \textbf{Growth creates value only if ROE $>K_e$}: ROE 12\% $\to$ 16,579; ROE 10\% $\to$ 15,750 (same as no growth); ROE 8\% $\to$ 15,000.
+  \item NPVGO: one year's investment $-315+38/0.10=63$; all years $63/(0.10-0.024)=829$; EqV $=15{,}750+829$.
+  \item With a target debt ratio, only $(1-\delta)$ of reinvestment is funded by equity (Sony: $\times(1-0.258)$).
+  \item Normalize depressed earnings (Sony: BV $\times$ normal ROE 5.25\%).
+  \item Cross holdings: value without their income, then add the share of their value; avoid double counting.
+  \item ERP for multinationals: revenue-weighted regional ERP (Nestl\'e 5.26\%).
+  \item Two-stage TV: discount over $n$ years (Nestl\'e $1.0847^{10}$; the slide's single-year discount is a typo). Stable FCFE $=$ EPS$_{n+1}\times(1-\text{stable ERR})$.
+  \item In stable growth: $\beta\to1$, higher debt ratio, CapEx closer to D\&A.
+  \item Sensitivity to $g$; industry-average $g$ can skew value if the industry is at a different stage.
+\end{enumerate}
+\end{trapbox}

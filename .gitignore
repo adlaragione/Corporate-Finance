@@ -1,0 +1,5 @@
+bible/tex/*.aux
+bible/tex/*.log
+bible/tex/*.toc
+bible/tex/*.out
+bible/tex/main.pdf
