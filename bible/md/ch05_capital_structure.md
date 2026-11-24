@@ -235,7 +235,7 @@ $\frac{D}{D+E}$ & $D/E$ & $\beta_l$ & $k_e$ & \$Debt & \$Interest & Rating & Rat
 \end{tabular}
 
 How a row is built (e.g., 40\%): $D/E=0.4/0.6=0.667$; $\beta_l=0.7333\times1.667=1.2222$; $k_e=3.5\%+1.2222\times6\%=10.83\%$; \$Debt $=0.4\times61{,}875=24{,}750$; at the A+ rate $4.57\%$ interest $=1{,}131$, ICR $=6{,}500/1{,}131=5.75\in[5.50,6.49]\Rightarrow$ A+ (consistent); $k_d(1-t)=4.57\%\times0.62=2.83\%$; WACC $=10.83\%\times0.6+2.83\%\times0.4=7.63\%$.\\
-\footnotesize (At 90\% the ICR of 1.24 falls just below the B$-$ band $[1.25,1.49]$; the class sheet assigns B$-$.)\normalsize
+\footnotesize (At 90\% the ICR of 1.24 falls in the band $[0.80,1.24]$, i.e.\ a \textbf{CCC} rating; the class Excel assigns B$-$, an inconsistency of the file. In the exam, read the rating strictly from the table.)\normalsize
 
 **(v) Optimal ratio and value consequence.** WACC is minimized at **70\% debt (7.55\%)** vs the current 7.96\%: Disney is **under-levered**. The Excel stops at the WACC; we complete the value step with the standard method (EBIT fixed, implied growth):
 \begin{align*}

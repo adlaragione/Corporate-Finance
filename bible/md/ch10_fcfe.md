@@ -382,7 +382,7 @@ k_e=4\%+0.85\times5.26\%=\mathbf{8.47\%}\quad(\text{assumed unchanged in perpetu
 \text{ROE}&=5{,}763/25{,}078=\mathbf{22.98\%}\\ g&=\text{ERR}\cdot\text{ROE}=0.3165\times0.2298=\mathbf{7.27\%}
 \end{align*}
 (Assuming BV of equity includes no cash holdings and net income no interest income, so this is a noncash ROE.)\\
-\textcolor{keyred}{**Slide typo**}: the slide writes ``NI $-$ CapEx $-$ D\&A''; the correct formula subtracts *net* CapEx (CapEx $-$ D\&A), as the numbers show.
+**Note**: the formula subtracts *net* CapEx, i.e.\ (CapEx $-$ D\&A), exactly as written on the slide: $5{,}763-(5{,}058-3{,}330)-368+272=3{,}939$. Do not subtract both CapEx and D\&A.
 
 **Stable growth** (after year 10): $g=4\%$, $K_e$ unchanged, ROE drops to 15\% $\Rightarrow$ **ERR $=g$/ROE $=4\%/15\%=26.7\%$**.
 
@@ -417,7 +417,7 @@ Year & EPS & Net CapEx & $\Delta$WC & Reinvest. & Debt fin. & FCFE & PV at 8.47\
 \text{TV}_{10}&=\frac{228.3}{0.0847-0.04}=\mathbf{5{,}103.5}\\
 \text{EqV}&=1{,}060.5+\frac{5{,}103.5}{1.0847^{10}}=1{,}060.5+2{,}262.7=\mathbf{CHF\ 3{,}323.3}\ \text{per share}
 \end{align*}
-\textcolor{keyred}{**Slide typo**}: the slide writes $5{,}103.5/1.0847$; the TV must be discounted over **10 years** ($1.0847^{10}=2.255$), as in the Excel.
+**Note**: as on the slide and in the Excel, the TV at the end of year 10 is discounted over **10 years** ($1.0847^{10}=2.255$), not one.
 
 > **Two details of the stable phase** *(added, not on slides)*
 (i) In the stable year the Excel sets debt financing to zero and computes reinvestment as EPS $\times$ ERR: the stable ERR already measures *equity* reinvestment (net of debt). (ii) Stable FCFE (228.3) is barely above year-10 FCFE (227.4) even though EPS grows: lower growth needs less reinvestment (ERR falls from 31.7\% to 26.7\%), which frees cash flow.
@@ -467,7 +467,7 @@ Cross holdings & value firm without them $+$ \% owned $\times$ their value\\
   - Normalize depressed earnings (Sony: BV $\times$ normal ROE 5.25\%).
   - Cross holdings: value without their income, then add the share of their value; avoid double counting.
   - ERP for multinationals: revenue-weighted regional ERP (Nestl\'e 5.26\%).
-  - Two-stage TV: discount over $n$ years (Nestl\'e $1.0847^{10}$; the slide's single-year discount is a typo). Stable FCFE $=$ EPS$_{n+1}\times(1-\text{stable ERR})$.
+  - Two-stage TV: discount over $n$ years (Nestl\'e $1.0847^{10}=2.255$, as on the slide). Stable FCFE $=$ EPS$_{n+1}\times(1-\text{stable ERR})$.
   - In stable growth: $\beta\to1$, higher debt ratio, CapEx closer to D\&A.
   - Sensitivity to $g$; industry-average $g$ can skew value if the industry is at a different stage.
 

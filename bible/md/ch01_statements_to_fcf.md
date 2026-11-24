@@ -733,7 +733,7 @@ Second component of reinvestment: cash for working-capital needs.
 | Smoothed net CapEx | (1/n)ΣCapEx_{t−i} − D&A_t |
 | Net CapEx w/ acquisitions | Net CapEx + Acquisitions − D&A of acquisitions |
 | Expected growth | ROIC × Reinvestment rate |
-| ROIC | EBIT(1 − t) / (BV equity + BV debt) |
+| ROIC | EBIT(1 − t) / (BV equity + BV debt) (GAP, SAP); in Chs. 4 and 8 cash is netted out: BV equity + BV debt − cash |
 | WACC | k_e × E/(D+E) + k_d(1 − t) × D/(D+E) |
 | CAPM | k_e = r_f + β × ERP |
 | ΔWC (stable ratio) | w × ΔRevenue |
