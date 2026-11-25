@@ -425,3 +425,15 @@ EV/Sales & $\frac{\text{NOPAT margin}\,(1-\text{RR})}{\text{WACC}-g}$\\
   - EV/Sales is driven by NOPAT margin, reinvestment and WACC.
   - **Financing transactions do not change EV** (Bridge\_SOL): EV/EBITDA and EV/Sales stay constant; P/E changes when equity changes (share issue $+$, buyback/dividend $-$); debt and preferred transactions leave EqV unchanged.
 
+## Official exercises and solutions (Multiples_SOL.xlsx; Multiple_Exercises.pdf + Multiples_Exercises_Solved.xls)
+- **Ex_1 (a)** slide question: EV peer 1,200; EV/EBITDA26 10×; EV target 250; **EqV 240** (official, confirms our earlier answer).
+- **Ex_1 (b)**: EV = 25,000 + 3,200 + 4,000 − 2,200 = **30,000** (payables 7,600 are NOT debt); EV/EBITDA = **6.67×**.
+- **Ex_2 treasury stock method**: price 10; 1,000 shares outstanding (+200 treasury, ignored); ITM tranches A (100 @6) and B (50 @4): new 150, cash 800, buyback 80, net **+70** → **1,070** shares, market cap **10,700** (= 10,000 + option intrinsic value 700).
+- **Foglio1**: g 5%, ROE 14%, Ke 10% → payout 64.29%, P/E **12.86×**.
+- **Trading/Deal/Valuation**: 8 lighting peers, averages EV/Sales 1.64×/1.53× (A/F+1), EV/EBITDA 11.82×/10.48×, P/E 24.66×/20.65×; 10 deals, averages EV/Sales 2.12×, EV/EBITDA 13.30×, P/E 27.96×; target EqV from ≈60,315 (EV/Sales 16F) to ≈153,852 (deal EV/EBITDA); bridge −736.2 (net cash +681.0, pensions −603.0, provisions −352.8, minorities −461.4).
+- **Ex (convertibles)**: diluted mkt cap 240; bonds at MV 106.80; net debt 256.80; minorities at MV 150; pensions 50; associates −200; **EV 496.80**; NI adj **10.4**; EBITDA adj **33**; **EV/EBITDA 15.05×, P/E 23.08×**.
+- **Problem 1 Zorzi**: peers EV/EBITDA 7.18/7.67/7.22 → avg **7.36** → EV **1,840**, equity **1,640**; current P/E 19.00/15.75/17.25 → avg **17.33** → equity **1,733** (EV 1,933); SOP (42×22 + 36×19 + 26×18)×0.75 = **1,557** (EV 1,757).
+- **Problem 2 Rolling Mud**: EV/EBIT A 14.08, B 7.21 (**minority stake → excluded**), C 14.78 → avg **14.43**; Free SPA EV 57.71, equity 48.71, **offer for 80% $38.97m**.
+- **Problem 3 Blizzard**: P/E F+1 avg **17.85** → equity **586.2**, EV 883.0; EV/Sales F+1 avg **0.995** → EV **1,056.8**, equity 760.0 (bridge +296.8); PEG (current P/E / g; g = 3.5%, 2%, 4.4%, Blizzard 3% — only in the Excel) avg 629.2 → equity **601.7**.
+- **Regression value map**: EV/Sales = 0.2948 + 5.2497 × EBITDA%, R² 0.785; target 14.1% → 1.035× → EV **103.5** (vs 94.9 with the plain average 0.949×).
+- **Trading Multiple (variant)**: EV **720**; NI adj **30.84**; EBITDA adj **88**; EV/EBITDA **8.18×**; P/E **23.35×**.
