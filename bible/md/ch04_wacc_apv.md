@@ -245,6 +245,8 @@ No-growth, no-reinvestment perpetual firm: EBIT \$166.67m; effective tax rate 40
 \end{align*}
 No growth and no reinvestment $\Rightarrow$ FCFO $=$ NOPAT and FCFE $=$ NI (no net borrowing). Both routes give \$600m.
 
+**(ix) official Excel, step by step:** EBIT 166.67 − interest 28.00 = EBT 138.67 − taxes (40%) 55.47 = NI 83.20; equity = 83.20/0.1387 = 599.87. The Excel's EV 999.82 / equity 599.82 differ from 1,000/600 only by input rounding.
+
 \textbf{Why the two routes agree here: three assumptions (PRO)}
 
   - **Values for debt and equity.** The debt and equity values used to compute the WACC are the same values obtained in the valuation. This circular reasoning (you need WACC to obtain the values in the first place) means that a WACC based on market-value weights will **not** give the same equity value as an equity model **if the firm is not fairly priced to begin with**.

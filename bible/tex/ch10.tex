@@ -219,6 +219,27 @@ Stable growth: $g_n=\text{ERR}\cdot\text{Noncash ROE}$ (linked to fundamentals);
 \slidefig{Redrawn from the slide: gross FCFE $=1{,}575\times1.024^{t-1}$ (1,612.80, 1,651.51, \dots, 2,195.23); net FCFE $=0.8\times$ gross (1,290.24, 1,321.21, \dots, 1,756.18). The vertical gap is the reinvestment (315, 322.56, 330.30, \dots). Net FCFE crosses the steady-state line around $t=10$.}
 \end{center}
 
+\begin{exbox}[Official sheet 7.1: the year-by-year path (ERR $=20\%$, ROE $=12\%$, $g=2.4\%$)]
+\begin{center}
+\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+Year & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9\\
+\midrule
+NI (no growth) & 1,575 & 1,575 & 1,575 & 1,575 & 1,575 & 1,575 & 1,575 & 1,575 & 1,575\\
+NI (with growth) & 1,575.0 & 1,612.8 & 1,651.5 & 1,691.1 & 1,731.7 & 1,773.3 & 1,815.9 & 1,859.4 & 1,904.1\\
+$-$ Reinvest.\ ($20\%$) & (315.0) & (322.6) & (330.3) & (338.2) & (346.3) & (354.7) & (363.2) & (371.9) & (380.8)\\
+\textbf{FCFE (with growth)} & \textbf{1,260.0} & \textbf{1,290.2} & \textbf{1,321.2} & \textbf{1,352.9} & \textbf{1,385.4} & \textbf{1,418.6} & \textbf{1,452.7} & \textbf{1,487.5} & \textbf{1,523.2}\\
+$\Delta$ income & -- & 37.8 & 38.7 & 39.6 & 40.6 & 41.6 & 42.6 & 43.6 & 44.6\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each year's increase in income is the return on the previous year's reinvestment: $315\times12\%=37.8$, $322.56\times12\%=38.7$, \dots. Everything grows at $2.4\%$ per year.
+
+\smallskip
+\textbf{Official NPVGO steps (sheet 7.1):} reinvestment in year 1 $=-315$; PV of all the benefits of that reinvestment $=315\times12\%/10\%=37.8/0.10=378$; NPVGO of the year-1 investment $=-315+378=63$; NPVGO of reinvesting every year $=63/(0.10-0.024)=828.95$; value with no growth $+$ NPVGO $=15{,}750+828.95=16{,}578.95$ $=$ EqV with growth (difference 0 \checkmark). The sheet's note: ``With ROE $=K_e$, it becomes 0''.
+\end{exbox}
+
 \begin{exbox}[Value with growth (ROE $=12\%$, $K_e=10\%$) -- confirmed by the official Excel]
 \[
 \text{EqV}_0=\frac{1{,}260}{0.10-0.024}=\mathbf{16{,}579}

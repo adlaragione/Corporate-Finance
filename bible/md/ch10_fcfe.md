@@ -216,6 +216,8 @@ Stable growth: $g_n=\text{ERR}\cdot\text{Noncash ROE}$ (linked to fundamentals);
 \end{align*}
 This equals the Gordon model at $T_0$: $\frac{\text{FCFE}}{K_e-g}=\frac{1{,}260}{0.10-0.024}=16{,}579$.
 
+**Official sheet 7.1, years 1–9 (ERR 20%, ROE 12%, g 2.4%):** NI with growth 1,575.0, 1,612.8, 1,651.5, 1,691.1, 1,731.7, 1,773.3, 1,815.9, 1,859.4, 1,904.1; reinvestment (20%) 315.0, 322.6, 330.3, 338.2, 346.3, 354.7, 363.2, 371.9, 380.8; FCFE 1,260.0, 1,290.2, 1,321.2, 1,352.9, 1,385.4, 1,418.6, 1,452.7, 1,487.5, 1,523.2; Δincome 37.8, 38.7, 39.6, 40.6, 41.6, 42.6, 43.6, 44.6. NPVGO steps: −315 + 37.8/0.10 = 63; 63/(0.10 − 0.024) = 828.95; 15,750 + 828.95 = 16,578.95.
+
 > **Key result**
 **Growth only creates value if ROE $>K_e$** (for asset-side models, if ROI $>$ WACC).
 
