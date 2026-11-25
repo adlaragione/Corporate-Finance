@@ -210,16 +210,36 @@ Discussion questions: prepare (i) IS forecasts, (ii) PPE forecasts, (iii) BS for
 
 What JJ Jones tests: (1) assumptions → statements; (2) three statements linked; (3) required vs excess cash; (4) WC from days ratios; (5) PPE from PPE/revenue; (6) debt/cash balance the model instead of plugging operations; (7) FCFO and FCFE from the resulting statements.
 
-## 2.25 Illustrative one-year forecast (base year assumed by us)
-Base year (Y0, assumed): revenue 1,000; cash 50; AR 136.99; inventory 131.51; other CA 60; gross PPE 2,000, acc. dep. 800, net PPE 1,200; AP 65.75; accrued 200; current LTD 50; LTD 500; NCL 100; preferred 100; common equity 562.74.
+## 2.25 JJ Jones — official solution (JJ Jones Solution.xlsx)
+Historical Years 1–2 are given; Year 3 is forecast.
 
-Year 1:
-- IS: revenue 1,100; COGS 660; opex 110; depreciation = 2,000/10 = 200; EBIT 130; interest 8% × 550 = 44; EBT 86; tax 34.4; NI 51.6; preferred dividends 10.
-- PPE: net PPE = 1.2 × 1,100 = 1,320; CapEx = 1,320 − 1,200 + 200 = 320; gross PPE 2,320; acc. dep. 1,000.
-- BS: cash 55; AR 1,100 × 50/365 = 150.68; inventory 660 × 80/365 = 144.66; other CA 66; AP 660 × 40/365 = 72.33; accrued 220; NCL 110.
-- Funding: CFO = 51.6 + 200 − ΔWC(−3.73) = 255.33; − CapEx 320 − pref. div. 10 − repay current LTD 50 − Δ required cash 5 = −129.67 → new LTD 129.67; LTD = 629.67; no common dividends; excess cash 0.
-- Check: total assets 1,736.34 = liabilities 1,032.00 + preferred 100 + common equity 604.34 (= 562.74 + 51.6 − 10) ✓.
-- FCF: NOPAT = 130 × 0.6 = 78; FCFO = 78 + 200 + 3.73 − 5 − 320 = −43.27; FCFE = −43.27 − 44 × 0.6 − 10 + (129.67 − 50) = 0.00 = dividends + Δexcess cash ✓.
+| | Year 1 | Year 2 | **Year 3** | How Year 3 is obtained |
+|---|---:|---:|---:|---|
+| Revenue | 5,000 | 6,000 | **6,600.0** | 6,000 × 1.10 |
+| COGS | (3,000) | (3,600) | **(3,960.0)** | 60% |
+| Depreciation | (750) | (830) | **(1,018.0)** | beginning gross PPE 10,180 / 10 |
+| Operating expenses | (500) | (600) | **(660.0)** | 10% |
+| EBIT | 750 | 970 | **962.0** | |
+| Interest | (113) | (160) | **(240.0)** | 8% × beginning debt (1,300 + 1,700) |
+| Other income | 40 | 50 | **0** | excess assets = 0 |
+| EBT / tax / NI | 677 / (270.8) / 406.2 | 860 / (344) / 516 | **722 / (288.8) / 433.2** | 40% |
+| Preferred dividends | (100) | (100) | **(100)** | 10% × beginning preferred |
+| Cash | 1,000 | 1,200 | **330.0** | required 5% × revenue; excess cash 0 |
+| AR / Inventory / Other CA | 680 / 660 / 250 | 820 / 790 / 300 | **904.1 / 867.9 / 396.0** | Rev×50/365; COGS×80/365; 6% |
+| Net PPE (gross / acc. dep.) | 5,500 | 6,600 | **7,920 (12,518 / 4,598)** | 1.2 × revenue |
+| CapEx | 750 | 1,930 | **2,338** | 12,518 − 10,180 = ΔNet PPE + dep |
+| Other assets | 1,500 | 1,500 | **0** | excess assets run off |
+| Total assets | 9,590 | 11,210 | **10,418.1** | |
+| AP | 330 | 390 | **442.5** | **purchases** × 40/365, purchases = COGS + ΔInv = 4,037.9 |
+| Accrued / NCL | 1,000 / 500 | 1,200 / 600 | **1,320 / 660** | 20% / 10% |
+| Current LTD / LTD | 800 / 1,200 | 1,300 / 1,700 | **0 / 1,700** | current portion retired, no new debt |
+| Preferred / Common / RE | 1,000 / 2,692.6 / 2,067.4 | 1,000 / 2,692.6 / 2,327.4 | **1,000 / 2,692.6 / 2,602.9** | RE = 2,327.4 + 433.2 − 100 − 57.7 |
+| FCFO | 446.6 | (498.0) | **(798.3)** | 577.2 + 1,018 − ΔNWC − 30 − 2,338 |
+| FCFE | 278.8 | 306.0 | **(2,342.3)** | FCFO − 100 − 240 + 96 − 1,300 |
+| Common dividends | (278.8) | (156.0) | **(57.7)** | **balancing item**: 900 + 1,500 − 2,342.3 |
+| Δ Cash | 50 | 200 | **(870)** | 330 − 1,200 |
+
+Key points: depreciation on beginning gross PPE; interest on beginning total debt incl. current portion; payables on purchases; excess cash (900) and other assets (1,500) run off; the common dividend (not debt) balances; tax on EBIT (384.8) ≠ tax expense (288.8), difference = ITS 96; historical EBIT in the FCF schedule includes other income (790, 1,020).
 
 ## 2.26 Common mistakes in business forecasting (slide)
 1. Forecasting a hockey stick without explaining the operational mechanism.
@@ -252,7 +272,7 @@ Year 1:
 1. Interest, cash and debt are projected LAST (IS without interest; BS without cash and debt).
 2. Cash/debt must balance the model, not hide operating errors (no hidden plug).
 3. Depreciation on **beginning** PPE; interest on **beginning** debt avoids circularity; average balances → circular model.
-4. Days ratios: receivables on revenue; inventory and payables on COGS; JJ Jones uses ending balances.
+4. Days ratios: receivables on revenue; inventory on COGS; payables on COGS or, as in the official JJ Jones solution, on purchases (COGS + ΔInventory); JJ Jones uses ending balances.
 5. Revenue growth must be decomposed (price × volume; market size × share).
 6. Sales growth requires CapEx and WC growth (capacity).
 7. Expected cash flows, not the most likely case.

@@ -374,6 +374,8 @@ Tasks: (i) cash-flow statement; (ii) FCFO; (iii) FCFE.
 Note: tax on EBIT (160) ≠ tax actually paid (120); the difference (40) is the interest tax shield, 100 × 40%.
 (If one ignored required cash, FCFO would be −180; the lecture explicitly stresses "required cash is not excess cash", so required cash is an operating need and FCFO = −200.)
 
+**Confirmed by the official class solution** (CF-BVal_02_Bocconi_2023_SOL.xlsx). Third schedule, from CFO to FCFO: CFO 300 + interest paid 100 − interest tax shield 40 − Δrequired cash 20 = UCFO 340 − CapEx 540 = **FCF (200)**. Cash flow before changes in financing = −200 − 100 + 40 = −260; + new debt 400 = EFCF 140.
+
 **(iii) FCFE**
 
 Route from FCFO:

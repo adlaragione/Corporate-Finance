@@ -473,89 +473,173 @@ A (less accurate) alternative that does not require iteration is to use the \tex
   \item Can you compute FCFO and FCFE from the resulting statements?
 \end{enumerate}
 
-\begin{addbox}[How each driver becomes a line item]
-\begin{itemize}[leftmargin=*]
-  \item Revenue$_t$ = 1.10 $\times$ Revenue$_{t-1}$; COGS = 60\%; Opex = 10\%; taxes = 40\% of EBT.
-  \item Depreciation = Gross PPE$_{\text{begin}}$ / 10 (10-year straight line).
-  \item Net PPE$_t$ = 1.2 $\times$ Revenue$_t$ $\Rightarrow$ CapEx$_t$ = Net PPE$_t$ $-$ Net PPE$_{t-1}$ + Depreciation$_t$.
-  \item AR = Rev $\times$ 50/365; Inventory = COGS $\times$ 80/365; AP = COGS $\times$ 40/365 (ending balances).
-  \item Interest = 8\% $\times$ beginning debt; preferred dividends = 10\% $\times$ beginning preferred (beginning balances avoid circularity).
-  \item Debt is the \textbf{balancing item}: repay the current portion of LTD; if cash flow is insufficient, issue new LTD. Since excess assets $= 0$, any surplus would be paid out (no excess cash accumulates).
-\end{itemize}
+\begin{exbox}[Official solution (JJ Jones Solution.xlsx) -- the starting point]
+The handout gives two \textbf{historical} years (Year 1, Year 2) and asks to forecast \textbf{Year 3} with the value drivers above (the blank file \emph{JJ Jones Discussion Questions.xlsx} has the same layout). All tables below are the official solution; Year 3 is derived step by step in the last column.
+\end{exbox}
+
+\subsection{(i) Income Statement Forecast}
+\begin{center}
+\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrr>{\bfseries}rl@{}}
+\toprule
+ & \textbf{Year 1} & \textbf{Year 2} & \textbf{Year 3} & \textbf{How Year 3 is obtained}\\
+\midrule
+Revenue & 5,000 & 6,000 & 6,600.0 & $6{,}000\times1.10$\\
+Cost of goods sold & (3,000) & (3,600) & (3,960.0) & $60\%\times6{,}600$\\
+Gross margin & 2,000 & 2,400 & 2,640.0 & \\
+Depreciation and amortization & (750) & (830) & (1,018.0) & \emph{beginning} gross PPE$/10=10{,}180/10$\\
+Operating expenses & (500) & (600) & (660.0) & $10\%\times6{,}600$\\
+\midrule
+Operating income (EBIT) & 750 & 970 & 962.0 & \\
+Interest expense & (113) & (160) & (240.0) & $8\%\times$ beginning debt $(1{,}300+1{,}700)$\\
+Other income (on excess cash) & 40 & 50 & 0.0 & excess assets $=0$\\
+\midrule
+Income before taxes & 677 & 860 & 722.0 & \\
+Income tax expense & (270.8) & (344) & (288.8) & $40\%\times722$\\
+\midrule
+Net income & 406.2 & 516 & 433.2 & \\
+Preferred dividends & (100) & (100) & (100.0) & $10\%\times$ beginning preferred 1,000\\
+Income to common & 306.2 & 416 & 333.2 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{(ii) PPE Forecast}
+\begin{center}
+\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrr>{\bfseries}rl@{}}
+\toprule
+ & \textbf{Year 1} & \textbf{Year 2} & \textbf{Year 3} & \textbf{How Year 3 is obtained}\\
+\midrule
+Gross PPE, beginning & 7,500 & 8,250 & 10,180 & Year 2 ending\\
++ Capital expenditures & 750 & 1,930 & 2,338 & plug: $12{,}518-10{,}180$\\
+Gross PPE, ending & 8,250 & 10,180 & 12,518 & net PPE $+$ accumulated depreciation\\
+\midrule
+Accumulated depreciation, beginning & 2,000 & 2,750 & 3,580 & Year 2 ending\\
++ Depreciation expense & 750 & 830 & 1,018 & $10{,}180/10$\\
+Accumulated depreciation, ending & 2,750 & 3,580 & 4,598 & \\
+\midrule
+Net PPE & 5,500 & 6,600 & 7,920 & $1.2\times6{,}600$ (driver)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{keybox}[The PPE logic]
+Net PPE is set by the driver (1.2 $\times$ revenue) $\Rightarrow$ gross PPE $=$ net PPE $+$ accumulated depreciation $\Rightarrow$ \textbf{CapEx $=$ ending gross PPE $-$ beginning gross PPE} $=12{,}518-10{,}180=2{,}338$.\\
+Equivalently: CapEx $=\Delta$Net PPE $+$ Depreciation $=(7{,}920-6{,}600)+1{,}018=2{,}338$.
+\end{keybox}
+
+\subsection{(iii) Balance Sheet Forecast}
+\begin{center}
+\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrr>{\bfseries}rl@{}}
+\toprule
+ & \textbf{Year 1} & \textbf{Year 2} & \textbf{Year 3} & \textbf{How Year 3 is obtained}\\
+\midrule
+Cash balance & 1,000 & 1,200 & 330.0 & required cash $5\%\times6{,}600$; excess cash $=0$\\
+Accounts receivable & 680 & 820 & 904.1 & $6{,}600/(365/50)$\\
+Inventory & 660 & 790 & 867.9 & $3{,}960/(365/80)$\\
+Other current assets & 250 & 300 & 396.0 & $6\%\times6{,}600$\\
+Total current assets & 2,590 & 3,110 & 2,498.1 & \\
+Net PPE & 5,500 & 6,600 & 7,920.0 & PPE schedule\\
+Other assets & 1,500 & 1,500 & 0.0 & excess assets $=0$ (liquidated)\\
+\textbf{Total assets} & \textbf{9,590} & \textbf{11,210} & 10,418.1 & \\
+\midrule
+Accounts payable & 330 & 390 & 442.5 & purchases$/(365/40)$, purchases $=3{,}960+77.9$\\
+Accrued expenses & 1,000 & 1,200 & 1,320.0 & $20\%\times6{,}600$\\
+Current portion of LTD & 800 & 1,300 & 0.0 & the 1,300 is retired\\
+Long-term debt & 1,200 & 1,700 & 1,700.0 & no new debt needed\\
+Non-current liabilities & 500 & 600 & 660.0 & $10\%\times6{,}600$\\
+Total liabilities & 3,830 & 5,190 & 4,122.5 & \\
+Preferred stock & 1,000 & 1,000 & 1,000.0 & no change\\
+Common stock (and other) & 2,692.6 & 2,692.6 & 2,692.6 & no change\\
+Retained earnings & 2,067.4 & 2,327.4 & 2,602.9 & see (iv)\\
+Total shareholders' equity & 5,760 & 6,020 & 6,295.5 & \\
+\textbf{Total liabilities and equity} & \textbf{9,590} & \textbf{11,210} & 10,418.1 & balances \checkmark\\
+\midrule
+\emph{memo:} required cash & 250 & 300 & 330.0 & $5\%$ of revenue\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{(iv) Retained Earnings}
+\begin{center}
+\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrr>{\bfseries}rl@{}}
+\toprule
+ & \textbf{Year 1} & \textbf{Year 2} & \textbf{Year 3} & \\
+\midrule
+Beginning balance & 2,040.0 & 2,067.4 & 2,327.4 & \\
++ Net income & 406.2 & 516.0 & 433.2 & \\
+$-$ Preferred dividends & (100.0) & (100.0) & (100.0) & \\
+$-$ Common dividends \& repurchases & (278.8) & (156.0) & (57.7) & \textbf{balancing item} (see FCF schedule)\\
+Ending balance & 2,067.4 & 2,327.4 & 2,602.9 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{(v) Free Cash Flow Forecast (Holthausen--Zmijewski format)}
+\begin{center}
+\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrr>{\bfseries}rl@{}}
+\toprule
+ & \textbf{Year 1} & \textbf{Year 2} & \textbf{Year 3} & \textbf{Year 3 detail}\\
+\midrule
+EBIT & 790.0 & 1,020.0 & 962.0 & $=$ NI $+$ taxes $+$ interest\\
+$-$ Income taxes paid on EBIT & (316.0) & (408.0) & (384.8) & $40\%\times962$\\
+EBIT after taxes & 474.0 & 612.0 & 577.2 & \\
++ Depreciation & 750.0 & 830.0 & 1,018.0 & \\
+$-\Delta$ Accounts receivable & (116.7) & (140.0) & (84.1) & $904.1-820$\\
+$-\Delta$ Inventory & (107.8) & (130.0) & (77.9) & $867.9-790$\\
+$-\Delta$ Other current assets & (41.8) & (50.0) & (96.0) & $396-300$\\
++ $\Delta$ Accounts payable & 50.0 & 60.0 & 52.5 & $442.5-390$\\
++ $\Delta$ Accrued expenses & 162.1 & 200.0 & 120.0 & $1{,}320-1{,}200$\\
++ $\Delta$ Non-current liabilities & 76.8 & 100.0 & 60.0 & $660-600$\\
+$-\Delta$ Required cash & (50.0) & (50.0) & (30.0) & $330-300$\\
+Cash flow before CapEx & 1,196.6 & 1,432.0 & 1,539.7 & \\
+$-$ Capital expenditures & (750.0) & (1,930.0) & (2,338.0) & \\
+\textbf{Unlevered free cash flow (FCFO)} & 446.6 & (498.0) & (798.3) & \\
+\midrule
+$-$ Preferred dividends & (100.0) & (100.0) & (100.0) & \\
+$-$ Interest paid & (113.0) & (160.0) & (240.0) & \\
++ Interest tax shield & 45.2 & 64.0 & 96.0 & $40\%\times240$\\
+FCF before changes in financing & 278.8 & (694.0) & (1,042.3) & \\
++ $\Delta$ Preferred stock & 0 & 0 & 0 & \\
++ $\Delta$ Debt & 0 & 1,000.0 & (1,300.0) & debt $3{,}000\to1{,}700$\\
+\textbf{FCF to common equity (FCFE)} & 278.8 & 306.0 & (2,342.3) & \\
+\midrule
++ $\Delta$ Common stock & 0 & 0 & 0 & \\
+$-$ Common dividends \& repurchases & (278.8) & (156.0) & (57.7) & plug: $900-2{,}342.3+1{,}500$\\
+$\Delta$ Excess cash and assets & 0 & 150.0 & (2,400.0) & $-900-1{,}500$ run off\\
++ $\Delta$ Non-cash excess assets & & & 1,500.0 & other assets $1{,}500\to0$\\
++ $\Delta$ Required cash & 50.0 & 50.0 & 30.0 & \\
+\textbf{$\Delta$ Cash balance} & 50.0 & 200.0 & (870.0) & $=330-1{,}200$ \checkmark\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{addbox}[How to read the official solution -- the points that trip students up]
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Depreciation} $=$ \emph{beginning gross} PPE / useful life ($10{,}180/10$), not net PPE and not ending PPE.
+  \item \textbf{Interest} $=8\%\times$ \emph{beginning total debt}, including the current portion: $8\%\times(1{,}300+1{,}700)=240$ (beginning balance $\Rightarrow$ no circularity). Preferred dividends likewise on the beginning balance.
+  \item \textbf{Accounts payable are driven by purchases, not COGS}: purchases $=$ COGS $+\Delta$inventory $=3{,}960+77.9=4{,}037.9$; AP $=4{,}037.9\times40/365=442.5$ (with COGS one would get 434.0). Receivables use revenue, inventory uses COGS; all on \emph{ending} balances.
+  \item \textbf{Excess assets $=0$}: the excess cash of Year 2 ($1{,}200-300=900$) and the non-operating other assets (1,500) are run off in Year 3, and the other income they generated (50 in Year 2) disappears. Cash falls to the required level, 330.
+  \item \textbf{Debt policy}: the current portion (1,300) is retired. The firm needs no new long-term debt because the liquidated excess assets (2,400) cover the deficit, so LTD stays at 1,700.
+  \item \textbf{The balancing item is the common dividend} (57.7): FCFE $(-2{,}342.3)$ $+$ excess cash released (900) $+$ excess assets sold (1,500) $=57.7$ paid out, so that excess cash ends at 0. Debt or cash never ``plug'' the operating forecast.
+  \item \textbf{FCFO is negative} ($-798.3$) because keeping net PPE at $1.2\times$ revenue (it was $6{,}600/6{,}000=1.1\times$ in Year 2) requires CapEx of 2,338 $\gg$ depreciation 1,018: a growing, capital-intensive firm consumes cash. \textbf{FCFE is even more negative} ($-2{,}342.3$) because debt is repaid. A coherence question (Chapter 3): is the jump from $1.1\times$ to $1.2\times$ consistent with the business story?
+  \item \textbf{Tax on EBIT (384.8) $\neq$ income-tax expense (288.8)}: the difference is the interest tax shield, $0.4\times240=96$, added back below FCFO.
+  \item In the historical years EBIT in the FCF schedule includes the other income on excess cash (Year 1: $750+40=790$; Year 2: $970+50=1{,}020$), because the schedule computes EBIT as NI $+$ taxes $+$ interest. In Year 3 other income is zero, so EBIT $=$ operating income $=962$.
+\end{enumerate}
 \end{addbox}
 
-\begin{exbox}[Illustrative one-year forecast (base-year figures assumed by us; the class handout has the real ones)]
-\small
-\textbf{Assumed base year (Y0):} revenue 1,000; cash 50 (= 5\%); AR $1{,}000\times50/365=136.99$; inventory $600\times80/365=131.51$; other CA 60; gross PPE 2,000, accumulated depreciation 800, net PPE 1,200 (= 1.2 $\times$ revenue); AP $600\times40/365=65.75$; accrued 200; current LTD 50; LTD 500; non-current liabilities 100; preferred 100; common equity (balancing) 562.74.
-
-\medskip
-\begin{minipage}[t]{0.47\linewidth}
-\textbf{(i) Income statement, Y1}\\[2pt]
-\begin{tabular}{@{}lr@{}}
-Revenue ($1{,}000\times1.1$) & 1,100.00\\
-$-$ COGS (60\%) & (660.00)\\
-$-$ Operating expenses (10\%) & (110.00)\\
-$-$ Depreciation ($2{,}000/10$) & (200.00)\\
-\midrule
-EBIT & 130.00\\
-$-$ Interest ($8\%\times550$) & (44.00)\\
-\midrule
-EBT & 86.00\\
-$-$ Taxes (40\%) & (34.40)\\
-\midrule
-\textbf{Net income} & \textbf{51.60}\\
-$-$ Preferred dividends ($10\%\times100$) & (10.00)
-\end{tabular}
-
-\medskip
-\textbf{(ii) PPE, Y1}\\[2pt]
-\begin{tabular}{@{}lr@{}}
-Net PPE ($1.2\times1{,}100$) & 1,320.00\\
-CapEx ($1{,}320-1{,}200+200$) & 320.00\\
-Gross PPE ($2{,}000+320$) & 2,320.00\\
-Accum.\ depreciation ($800+200$) & 1,000.00
-\end{tabular}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.51\linewidth}
-\textbf{(iii) Balance sheet, Y1}\\[2pt]
-\begin{tabular}{@{}lr@{}}
-Required cash ($5\%\times1{,}100$) & 55.00\\
-AR ($1{,}100\times50/365$) & 150.68\\
-Inventory ($660\times80/365$) & 144.66\\
-Other CA ($6\%$) & 66.00\\
-Net PPE & 1,320.00\\
-\midrule
-\textbf{Total assets} & \textbf{1,736.34}\\[3pt]
-AP ($660\times40/365$) & 72.33\\
-Accrued ($20\%$) & 220.00\\
-LTD ($500+129.67$) & 629.67\\
-Non-current liab.\ ($10\%$) & 110.00\\
-Preferred stock & 100.00\\
-Common equity \footnotesize($562.74+51.6-10$) & 604.34\\
-\midrule
-\textbf{Total L + E} & \textbf{1,736.34} \checkmark
-\end{tabular}
-\end{minipage}
-
-\medskip
-\textbf{Debt as balancing item.} $\Delta$ net operating WC $=\Delta$AR $13.70+\Delta$Inv $13.15+\Delta$OCA $6.00-\Delta$AP $6.58-\Delta$Accrued $20-\Delta$NCL $10=-3.73$ (a release of cash).\\
-CFO $=51.60+200+3.73=255.33$; then $-$CapEx 320 $-$ preferred dividends 10 $-$ repayment of current LTD 50 $-\Delta$required cash 5 $=-129.67$ $\Rightarrow$ \textbf{new LTD issued $=129.67$}; common dividends $=0$; excess cash $=0$. (For simplicity, no new current portion of LTD is scheduled in Y1.)
-
-\medskip
-\textbf{(iv) Free cash flows, Y1}\\[2pt]
-\begin{tabular}{@{}lr@{\hspace{0.8cm}}lr@{}}
-EBIT$(1-t)=130\times0.6$ & 78.00 & FCFO & (43.27)\\
-+ Depreciation & 200.00 & $-$ Interest $\times(1-t)=44\times0.6$ & (26.40)\\
-$-\Delta$Required cash & (5.00) & $-$ Preferred dividends & (10.00)\\
-$-\Delta$Net operating WC & 3.73 & + Net debt ($129.67-50$) & 79.67\\
-$-$ CapEx & (320.00) & & \\
-\cmidrule{1-2}\cmidrule{3-4}
-\textbf{FCFO} & \textbf{(43.27)} & \textbf{FCFE} & \textbf{0.00}
-\end{tabular}
-
-\medskip
-Check: FCFE $0.00$ = common dividends $0$ + $\Delta$excess cash $0$ \checkmark. FCFE is exactly zero because debt is the balancing item and no excess cash or dividends are allowed: all of the operating deficit is financed with debt.
+\begin{exbox}[Checks you can do on a calculator]
+\begin{itemize}[leftmargin=*]
+  \item Balance sheet: $330+904.1+867.9+396+7{,}920+0=10{,}418.1=442.5+1{,}320+0+1{,}700+660+1{,}000+2{,}692.6+2{,}602.9$ \checkmark
+  \item FCFO from the FCFE identity: FCFE $=$ FCFO $-$ Int$(1-t)$ $-$ pref.\ div.\ $+$ net debt $=-798.3-144-100-1{,}300=-2{,}342.3$ \checkmark
+  \item Cash: $\Delta$cash $=\Delta$excess cash/assets $+$ assets run off $+\Delta$required cash $=-2{,}400+1{,}500+30=-870=330-1{,}200$ \checkmark
+\end{itemize}
 \end{exbox}
+
+
 
 % =====================================================================
 \section{Conclusion}
@@ -599,7 +683,7 @@ Revenue decomposition & Revenue $=$ Price $\times$ Volume $=$ Price $\times$ Mar
 Growth decomposition & $(1+g)=(1+g_{\text{price}})(1+g_{\text{market}})(1+g_{\text{share}})$\\
 Receivables & Revenue $\times$ DSO/365\\
 Inventory & COGS $\times$ DIO/365\\
-Payables & COGS $\times$ DPO/365\\
+Payables & COGS $\times$ DPO/365; official JJ Jones: Purchases $\times$ DPO/365, Purchases $=$ COGS $+\Delta$Inventory\\
 Net PPE & (Net PPE/Revenue) $\times$ Revenue\\
 CapEx & $\Delta$Net PPE $+$ Depreciation\\
 Depreciation & Gross PPE$_{\text{begin}}$/useful life, or \% of beginning PPE\\
@@ -624,7 +708,7 @@ Expected cash flow & $\sum_s p_s\,CF_s$ (not the most likely case)\\
   \item The order of the 10 modelling steps: the IS is projected \textbf{without interest}, the BS \textbf{without cash and debt}; interest is modelled after balancing (step 9).
   \item Cash and debt must \textbf{balance} the model, not hide operating errors (no hidden plug).
   \item Depreciation is projected on \textbf{beginning-of-period} PPE; interest on \textbf{beginning} debt avoids circularity. Average balances make the model circular (it needs iteration).
-  \item Days ratios: receivables on \textbf{revenue}; inventory and payables on \textbf{COGS}; JJ Jones uses \textbf{ending} balances.
+  \item Days ratios: receivables on \textbf{revenue}; inventory on \textbf{COGS}; payables on COGS or, as in the official JJ Jones solution, on \textbf{purchases} (COGS $+\Delta$inventory); JJ Jones uses \textbf{ending} balances.
   \item Do not forecast revenue growth as a single number: decompose it into price $\times$ volume (market size $\times$ market share).
   \item Sales growth requires matching CapEx and working-capital growth (capacity); flat CapEx with growing sales overstates FCF.
   \item Forecast \textbf{expected} cash flows, not the most likely case.
@@ -634,6 +718,7 @@ Expected cash flow & $\sum_s p_s\,CF_s$ (not the most likely case)\\
   \item A plan can be plausible line by line and incoherent as a system.
   \item Each action must have objectives, financial-statement impact, timing, execution risks and people in charge.
   \item Required cash (5\% of revenue in JJ Jones) $\neq$ excess cash (0 in JJ Jones).
+  \item JJ Jones official solution (Year 3): revenue 6,600; depreciation $10{,}180/10=1{,}018$; interest $8\%\times3{,}000=240$; NI 433.2; CapEx 2,338; FCFO $-798.3$; FCFE $-2{,}342.3$; excess cash (900) and other assets (1,500) run off; current LTD 1,300 retired, no new debt; \textbf{common dividend 57.7 is the balancing item}; $\Delta$cash $=-870$.
   \item The unlevered model (up to unlevered FCF) needs \textbf{no financing assumption}; FCFE does.
   \item Three dangers of numbers without narrative: plug-\&-point exercise, spreadsheet nirvana, no logical tie breaker.
   \item Historical data: 3--5 years; separate non-recurring items; D\&A total is found in the CF statement.
